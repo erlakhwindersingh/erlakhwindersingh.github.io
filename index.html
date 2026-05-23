@@ -15,7 +15,7 @@
             100% { transform: rotate(0deg); }
         }
 
-        /* Continuous Slow & Subtle Gradient Animation for the background */
+        /* Continuous Smooth Gradient Animation */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -25,13 +25,19 @@
         /* General Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Subtle Dark Gradient Background with Slow Animation */
+        /* FULL SCREEN ANIMATED GRADIENT FIX */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            /* Based on your original #1a1d24, creating a very subtle dark animation */
-            background: linear-gradient(-45deg, #1a1d24, #121419, #232730, #1a1d24);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            /* Colors made slightly more distinct to make animation visible */
+            background: linear-gradient(-45deg, #1a1d24, #2a303c, #0f1115, #1a2430);
             background-size: 400% 400%;
-            animation: gradientBG 18s ease infinite; /* Very slow 18s for 'light' effect */
+            /* Fixed attachment ensures the background covers the full screen even when scrolling */
+            background-attachment: fixed;
+            /* Speed increased to 10s so the effect is clearly noticeable */
+            animation: gradientBG 10s ease infinite;
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
@@ -40,11 +46,12 @@
         /* Navigation Bar */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(26, 29, 36, 0.95);
+            background: rgba(26, 29, 36, 0.85); /* Slightly more transparent for premium feel */
             backdrop-filter: blur(10px);
             padding: 25px 10%; 
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; 
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         nav .logo { font-size: 1.8em; font-weight: 800; color: #ffffff; }
         nav .logo span { color: #00f6ff; }
@@ -67,13 +74,13 @@
         /* Hero Content (Left Side) */
         .hero-content {
             flex: 1;
-            max-width: 650px; /* Adjusted for better text layout */
+            max-width: 650px; 
         }
         .hero-content h1 { font-size: 3.5em; font-weight: 800; margin-bottom: 5px; line-height: 1.1; }
         .hero-content h2 { font-size: 1.8em; font-weight: 600; margin-bottom: 20px; }
         .hero-content h2 span { color: #00f6ff; }
         
-        /* ALIGNMENT FIX: Restoring missing CSS for hero-text-box */
+        /* Text Box Layout */
         .hero-text-box { margin-bottom: 30px; }
         .hero-text-box .highlight-text {
             color: #ffffff; font-weight: 600; font-size: 1.1em;
@@ -208,7 +215,6 @@
     </nav>
 
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -216,7 +222,7 @@
                 const targetSection = document.querySelector(targetId);
                 
                 window.scrollTo({
-                    top: targetSection.offsetTop - 50, // Navbar offset adjustment
+                    top: targetSection.offsetTop - 50, 
                     behavior: 'smooth'
                 });
             });
@@ -224,7 +230,6 @@
     </script>
 
     <section id="home">
-        
         <div class="hero-content">
             <h1>Lakhwinder Singh</h1>
             <h2>And I'm a <span>Sr. Software Engineer</span></h2>
@@ -255,7 +260,6 @@
                 <img src="me.jpeg" alt="Lakhwinder Singh" class="hex-img" onerror="this.src='https://via.placeholder.com/400x450/1a1d24/00f6ff?text=LS'">
             </div>
         </div>
-
     </section>
     
     <section id="experience">
