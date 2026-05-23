@@ -5,182 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Er. Lakhwinder Singh - Portfolio</title>
     <style>
-        /* Fix for perfect alignment and width */
-        * {
-            margin: 0; padding: 0; box-sizing: border-box;
-        }
+        /* General Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Exact Bottom Image Color with Bottom Cyan Glow */
+        /* Exact Dark Matte Background from Image */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0b1121; /* Deep Dark Navy from the image bottom */
-            background-image: radial-gradient(circle at bottom center, rgba(0, 246, 255, 0.15) 0%, transparent 60%);
-            background-attachment: fixed; /* Keeps the glow fixed at the bottom of the screen */
-            color: #f8fafc;
+            background-color: #1a1d24; /* Premium matte dark grey */
+            color: #ffffff;
             line-height: 1.6;
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        /* Advanced Glassmorphism */
-        .glass-card {
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 246, 255, 0.1); 
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Perfectly Aligned Navigation */
+        /* Navbar Matches Image */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(11, 17, 33, 0.85); /* Matches dark background */
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 20px 10%; 
+            background: rgba(26, 29, 36, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px 10%; 
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; border-bottom: 1px solid rgba(0, 246, 255, 0.1);
+            z-index: 1000; 
         }
-        nav .logo { 
-            font-size: 1.6em; font-weight: 800; letter-spacing: 1px;
-            color: #ffffff;
+        nav .logo { font-size: 1.8em; font-weight: 800; color: #ffffff; }
+        nav .logo span { color: #00f6ff; /* Neon Cyan */ }
+        
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1em; transition: 0.3s; }
+        nav ul li a:hover { color: #00f6ff; }
+
+        /* HERO SECTION (Split Layout like image) */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 120px 10% 60px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        nav .logo span {
-            color: #00f6ff; /* Neon Cyan text */
+
+        /* Left Side Text */
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+        .hero-content h3 { font-size: 1.5em; font-weight: 500; margin-bottom: 5px; }
+        .hero-content h1 { font-size: 3.5em; font-weight: 800; margin-bottom: 5px; line-height: 1.1; }
+        .hero-content h2 { font-size: 1.8em; font-weight: 600; margin-bottom: 20px; }
+        .hero-content h2 span { color: #00f6ff; }
+        .hero-content p { color: #cbd5e1; font-size: 1.1em; line-height: 1.7; margin-bottom: 30px; }
+
+        /* Social Icons (Circles like Image) */
+        .social-icons { display: flex; gap: 15px; margin-bottom: 30px; }
+        .social-icons a {
+            display: flex; justify-content: center; align-items: center;
+            width: 40px; height: 40px; border-radius: 50%;
+            border: 2px solid #00f6ff; color: #00f6ff;
+            text-decoration: none; font-weight: bold; transition: 0.3s;
+        }
+        .social-icons a:hover { background: #00f6ff; color: #1a1d24; box-shadow: 0 0 15px #00f6ff; }
+
+        /* Glowing Buttons */
+        .header-buttons { display: flex; gap: 15px; }
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .btn-primary { 
+            background: #00f6ff; color: #1a1d24; 
+            box-shadow: 0 0 20px rgba(0, 246, 255, 0.5); /* Neon Glow */
+        }
+        .btn-primary:hover { box-shadow: 0 0 35px rgba(0, 246, 255, 0.8); transform: translateY(-3px); }
+        .btn-outline { border: 2px solid #00f6ff; color: #00f6ff; }
+        .btn-outline:hover { background: rgba(0, 246, 255, 0.1); transform: translateY(-3px); box-shadow: 0 0 15px rgba(0, 246, 255, 0.3); }
+
+        /* Right Side Hexagon Profile Picture */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+
+        .hex-wrapper {
+            position: relative;
+            width: 380px; height: 430px;
+            display: flex; justify-content: center; align-items: center;
         }
         
-        nav ul { list-style: none; display: flex; gap: 25px; }
-        nav ul li a { color: #cbd5e1; text-decoration: none; font-weight: 500; font-size: 1em; transition: 0.3s; }
-        nav ul li a:hover { color: #00f6ff; text-shadow: 0 0 10px rgba(0, 246, 255, 0.5); }
+        /* The blurry neon shadow behind hexagon */
+        .hex-glow {
+            position: absolute;
+            width: 100%; height: 100%;
+            background: #00f6ff;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            filter: blur(25px);
+            z-index: 1;
+        }
 
-        /* General Section Settings */
-        section { padding: 100px 5% 60px; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; font-weight: 700; color: #fff; }
+        /* The crisp solid neon border */
+        .hex-border {
+            position: absolute;
+            width: 98%; height: 98%;
+            background: #00f6ff;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: 2;
+        }
+
+        /* The actual photo */
+        .hex-img {
+            position: relative;
+            width: 93%; height: 93%;
+            object-fit: cover;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: 3;
+            background-color: #1a1d24; /* Fallback if transparent */
+        }
+
+        /* Generic Section Styling */
+        section:not(#home) { padding: 100px 5% 60px; max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
+        .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; font-weight: 700; }
         .section-title span { color: #00f6ff; }
 
-        /* Hero/Profile Section */
-        #home {
-            padding-top: 160px; 
-            padding-bottom: 40px;
-            text-align: center;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        /* Glassmorphism Cards for sections below */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
         }
-        .profile-pic {
-            width: 150px; height: 150px; border-radius: 50%; object-fit: cover; 
-            border: 3px solid #00f6ff; margin-bottom: 25px; 
-            box-shadow: 0 0 25px rgba(0, 246, 255, 0.4);
-            animation: float 4s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); box-shadow: 0 0 35px rgba(0, 246, 255, 0.6); }
-            100% { transform: translateY(0px); }
-        }
-
-        #home h1 { 
-            font-size: 2.8em; margin: 0 0 5px; font-weight: 800;
-            color: #ffffff;
-        }
-        #home h2 { font-size: 1.25em; color: #00f6ff; margin: 0 0 20px; font-weight: 400; letter-spacing: 1px; }
-        #home p { 
-            width: 100%; max-width: 750px;
-            margin: 0 auto 25px; color: #94a3b8; font-size: 1.1em; 
-            line-height: 1.8; padding: 0 15px;
-        }
-        
-        .header-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-        .btn { display: inline-block; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; letter-spacing: 0.5px; }
-        
-        .btn-primary { 
-            background: #00f6ff; 
-            color: #0b1121; 
-            border: none; 
-            box-shadow: 0 4px 15px rgba(0, 246, 255, 0.4); 
-        }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 246, 255, 0.6); }
-        
-        .btn-cert { 
-            background: transparent; 
-            color: #00f6ff; 
-            border: 1px solid #00f6ff; 
-        }
-        .btn-cert:hover { background: rgba(0, 246, 255, 0.1); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 246, 255, 0.2); }
 
         /* Experience Timeline */
-        .timeline-container { padding: 40px; margin-top: 20px; }
+        .timeline-container { margin-top: 20px; }
         .timeline-item { display: flex; gap: 25px; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-        .timeline-item:hover { transform: translateX(10px); }
         .timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        
-        .company-logo { 
-            width: 55px; height: 55px; background: rgba(15, 23, 42, 0.8); 
-            border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6em; 
-            flex-shrink: 0; border: 1px solid #00f6ff; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        }
-        
-        .exp-details { width: 100%; }
+        .company-logo { width: 55px; height: 55px; background: rgba(0, 246, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6em; flex-shrink: 0; border: 1px solid #00f6ff; }
         .exp-details h3 { font-size: 1.4em; margin: 0 0 5px; color: #00f6ff; }
-        .exp-details h4 { font-size: 1.05em; color: #f8fafc; font-weight: 500; margin: 0 0 5px; }
-        .exp-details .meta { font-size: 0.9em; color: #94a3b8; margin-bottom: 15px; display: inline-block; background: rgba(0,0,0,0.4); padding: 4px 10px; border-radius: 20px; }
+        .exp-details h4 { font-size: 1.05em; color: #f8fafc; margin: 0 0 5px; }
+        .exp-details .meta { font-size: 0.9em; color: #94a3b8; margin-bottom: 15px; display: inline-block; background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 20px; }
         
-        /* Inner roles for ToXSL */
         .inner-role { margin-left: 15px; border-left: 2px solid #00f6ff; padding-left: 20px; margin-bottom: 20px; position: relative; }
         .inner-role::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; background: #00f6ff; border-radius: 50%; box-shadow: 0 0 10px #00f6ff; }
-        .inner-role h5 { font-size: 1.1em; color: #f8fafc; margin: 0 0 3px; }
+        .inner-role h5 { font-size: 1.1em; color: #f8fafc; }
         .inner-role span { font-size: 0.85em; color: #94a3b8; font-style: italic; }
         .inner-role p { font-size: 0.95em; color: #cbd5e1; margin-top: 8px; }
 
-        /* Advanced Skills Cloud */
-        .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; padding: 0 10px; }
-        .skill-tag { 
-            background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(0, 246, 255, 0.2); 
-            padding: 10px 22px; border-radius: 30px; font-size: 0.95em; transition: all 0.3s ease; color: #cbd5e1;
-            backdrop-filter: blur(5px);
-        }
-        .skill-tag:hover { 
-            border-color: #00f6ff; color: #fff; background: rgba(0, 246, 255, 0.15); 
-            transform: translateY(-5px) scale(1.05); box-shadow: 0 5px 15px rgba(0, 246, 255, 0.3); 
-        }
+        /* Skills */
+        .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .skill-tag { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 246, 255, 0.2); padding: 10px 22px; border-radius: 30px; font-size: 0.95em; transition: 0.3s; color: #cbd5e1; }
+        .skill-tag:hover { border-color: #00f6ff; color: #1a1d24; background: #00f6ff; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 246, 255, 0.4); }
 
-        /* Projects Section */
+        /* Projects Grid */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .project-card { padding: 30px; transition: all 0.4s ease; position: relative; overflow: hidden; }
-        .project-card::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 246, 255, 0.05), transparent); transition: 0.5s;
-        }
-        .project-card:hover::before { left: 100%; }
-        .project-card:hover { border-color: #00f6ff; transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
-        .project-card h3 { font-size: 1.3em; margin: 0 0 12px; color: #f8fafc; }
+        .project-card { padding: 30px; transition: 0.4s; position: relative; overflow: hidden; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; }
+        .project-card:hover { border-color: #00f6ff; transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); background: rgba(255,255,255,0.05); }
+        .project-card h3 { font-size: 1.3em; margin: 0 0 12px; color: #fff; }
         .project-card p { font-size: 0.95em; color: #94a3b8; margin-bottom: 20px; line-height: 1.6; }
-        .tech-stack { font-size: 0.85em; color: #00f6ff; background: rgba(0, 246, 255, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block; border: 1px solid rgba(0, 246, 255, 0.2); }
+        .tech-stack { font-size: 0.85em; color: #00f6ff; background: rgba(0, 246, 255, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block; border: 1px solid rgba(0, 246, 255, 0.3); }
 
-        /* Contact */
-        #contact { text-align: center; padding-bottom: 80px; }
-        
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            nav { flex-direction: column; padding: 15px; gap: 15px; background: rgba(11, 17, 33, 0.95); }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            #home { flex-direction: column-reverse; text-align: center; padding-top: 140px; justify-content: center; gap: 50px; }
+            .hero-image { justify-content: center; padding-right: 0; }
+            .social-icons { justify-content: center; }
+            .header-buttons { justify-content: center; }
+            .hex-wrapper { width: 300px; height: 340px; }
+            nav { flex-direction: column; padding: 15px; gap: 15px; }
             nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
-            #home { padding-top: 180px; }
-            #home h1 { font-size: 2.2em; }
-            #home p { font-size: 1em; padding: 0 10px; }
-            .timeline-container { padding: 20px; }
-            .timeline-item { flex-direction: column; gap: 15px; }
-            .timeline-item:hover { transform: translateX(0); }
-            .header-buttons { flex-direction: column; width: 90%; margin: 0 auto; }
-            .btn { width: 100%; box-sizing: border-box; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Er. Lakhwinder <span>Singh</span></div>
+        <div class="logo">Portfolio<span>.</span></div>
         <ul>
-            <li><a href="#home">About</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -188,21 +187,35 @@
     </nav>
 
     <section id="home">
-        <img src="profile.jpg" alt="Lakhwinder Singh" class="profile-pic" onerror="this.src='https://via.placeholder.com/150/0b1121/00f6ff?text=LS'">
         
-        <h1>Lakhwinder Singh</h1>
-        <h2>Software Engineer | Flutter & Android Expert</h2>
-        <p>Hello Everyone! I'm a Software Engineer specializing in creating high-performance applications. With expertise in Mobile architecture, Payment Gateways, and complex API integrations, I build robust and scalable solutions.</p>
-        
-        <div class="header-buttons">
-            <a href="mailto:your-email@example.com" class="btn btn-primary">✉️ Contact Me</a>
-            <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" target="_blank" class="btn btn-cert">🏆 Python Bootcamp Certificate</a>
+        <div class="hero-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Lakhwinder Singh</h1>
+            <h2>And I'm a <span>Software Engineer</span></h2>
+            <p>I specialize in creating high-performance applications. With expertise in Mobile architecture, Flutter, Android SDK, and complex API integrations, I build robust and scalable solutions.</p>
+            
+            <div class="social-icons">
+                <a href="#">f</a>
+                <a href="#">t</a>
+                <a href="#">in</a>
+            </div>
+
+            <div class="header-buttons">
+                <a href="mailto:your-email@example.com" class="btn btn-primary">Contact Me</a>
+                <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" target="_blank" class="btn btn-outline">Python Certificate</a>
+            </div>
         </div>
+
+        <div class="hero-image">
+            <div class="hex-wrapper">
+                <div class="hex-glow"></div>     <div class="hex-border"></div>   <img src="profile.jpg" alt="Lakhwinder Singh" class="hex-img" onerror="this.src='https://via.placeholder.com/400x450/1a1d24/00f6ff?text=LS'">
+            </div>
+        </div>
+
     </section>
 
     <section id="experience">
         <h2 class="section-title">Professional <span>Experience</span></h2>
-        
         <div class="timeline-container glass-card">
             
             <div class="timeline-item">
@@ -249,7 +262,6 @@
                     <p>Core Android framework development, implementing basic OOPS concepts, and mastering SDK utilization.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -270,49 +282,32 @@
             <div class="skill-tag">RESTful APIs</div>
             <div class="skill-tag">DPM (Device Policy Manager)</div>
             <div class="skill-tag">Git & GitHub</div>
-            <div class="skill-tag">Bitbucket</div>
-            <div class="skill-tag">XML Layouts</div>
-            <div class="skill-tag">Android Studio</div>
         </div>
     </section>
 
     <section id="projects">
         <h2 class="section-title">Featured <span>Projects</span></h2>
         <div class="projects-grid">
-            
-            <div class="project-card glass-card">
+            <div class="project-card">
                 <h3>Scrap-Sathi App</h3>
                 <p>Designed a complete workflow application from scratch connecting recycling networks with an intuitive, highly responsive UI.</p>
                 <div class="tech-stack">Flutter, APIs</div>
             </div>
-
-            <div class="project-card glass-card">
+            <div class="project-card">
                 <h3>Smart Parking Application</h3>
                 <p>Engineered an end-to-end parking solution. Managed UI state efficiently using custom classes over default ViewModels.</p>
                 <div class="tech-stack">Android, Kotlin, Custom UI</div>
             </div>
-
-            <div class="project-card glass-card">
+            <div class="project-card">
                 <h3>Franmatch Project</h3>
                 <p>Integrated core business logic and dynamic features ensuring robust, fast communication with backend SQL Server databases.</p>
                 <div class="tech-stack">Java, SQL Server</div>
             </div>
-
-            <div class="project-card glass-card">
+            <div class="project-card">
                 <h3>DPM & Hardware Apps</h3>
                 <p>Built highly specialized applications bridging direct hardware logic with Android system protocols using strict policy controls.</p>
                 <div class="tech-stack">C++, Java, DPM</div>
             </div>
-
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2 class="section-title">Get In <span>Touch</span></h2>
-        <p style="color: #94a3b8; margin-bottom: 30px; font-size: 1.1em;">Currently open for new challenges and opportunities.</p>
-        <div class="header-buttons" style="flex-direction: row; justify-content: center;">
-            <a href="mailto:your-email@example.com" class="btn btn-primary">✉️ Send Email</a>
-            <a href="https://github.com/erlakhwindersingh" target="_blank" class="btn btn-cert">💻 GitHub Profile</a>
         </div>
     </section>
 
