@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Er. Lakhwinder Singh - Portfolio</title>
     <style>
+        /* Fix for perfect alignment and width */
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+
         /* Multiple Gradient Animated Background */
         body {
-            margin: 0; padding: 0; box-sizing: border-box;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background: linear-gradient(-45deg, #0f172a, #1e1b4b, #064e3b, #312e81, #172554);
             background-size: 400% 400%;
@@ -15,7 +19,7 @@
             color: #f8fafc;
             line-height: 1.6;
             scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevents horizontal scrolling/cutting */
+            overflow-x: hidden;
         }
 
         @keyframes gradientBG {
@@ -34,27 +38,28 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Navigation - Transparent to match background */
+        /* Perfectly Aligned Navigation */
         nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(15, 23, 42, 0.1); /* Super transparent */
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(15, 23, 42, 0.1);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 15px 10%; display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; 
+            display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         nav .logo { 
-            font-size: 1.5em; font-weight: 800; letter-spacing: 1px;
+            font-size: 1.6em; font-weight: 800; letter-spacing: 1px;
             background: linear-gradient(to right, #38bdf8, #818cf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        nav ul { list-style: none; display: flex; gap: 20px; margin:0; padding:0; }
-        nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 0.95em; transition: 0.3s; }
+        nav ul { list-style: none; display: flex; gap: 25px; }
+        nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1em; transition: 0.3s; }
         nav ul li a:hover { color: #38bdf8; text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
 
         /* General Section Settings */
-        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        section { padding: 100px 5% 60px; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; font-weight: 700; color: #fff; }
         .section-title span { 
             background: linear-gradient(to right, #38bdf8, #34d399);
@@ -62,18 +67,18 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Hero/Profile Section - Fixed Text Cut & Added Animation */
+        /* Hero/Profile Section */
         #home {
-            padding-top: 140px; 
+            padding-top: 160px; 
             padding-bottom: 40px;
             text-align: center;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         .profile-pic {
-            width: 140px; height: 140px; border-radius: 50%; object-fit: cover; 
-            border: 3px solid #38bdf8; margin-bottom: 20px; 
+            width: 150px; height: 150px; border-radius: 50%; object-fit: cover; 
+            border: 3px solid #38bdf8; margin-bottom: 25px; 
             box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
-            animation: float 4s ease-in-out infinite; /* Floating Animation */
+            animation: float 4s ease-in-out infinite;
         }
         
         @keyframes float {
@@ -89,9 +94,9 @@
         }
         #home h2 { font-size: 1.25em; color: #7dd3fc; margin: 0 0 20px; font-weight: 400; letter-spacing: 1px; }
         #home p { 
-            width: 100%; max-width: 750px; /* Fixed width issue */
+            width: 100%; max-width: 750px;
             margin: 0 auto 25px; color: #cbd5e1; font-size: 1.1em; 
-            line-height: 1.8; padding: 0 15px; box-sizing: border-box;
+            line-height: 1.8; padding: 0 15px;
         }
         
         .header-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
@@ -153,11 +158,11 @@
         /* Contact */
         #contact { text-align: center; padding-bottom: 80px; }
         
-        /* Mobile Responsiveness (Fixing cut text and layout) */
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             nav { flex-direction: column; padding: 15px; gap: 15px; background: rgba(15, 23, 42, 0.5); }
             nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
-            #home { padding-top: 160px; }
+            #home { padding-top: 180px; }
             #home h1 { font-size: 2.2em; }
             #home p { font-size: 1em; padding: 0 10px; }
             .timeline-container { padding: 20px; }
@@ -181,7 +186,8 @@
     </nav>
 
     <section id="home">
-        <img src="profile.jpg" alt="Lakhwinder Singh" class="profile-pic" onerror="this.src='https://via.placeholder.com/140/1e293b/38bdf8?text=LS'">
+        <img src="profile.jpg" alt="Lakhwinder Singh" class="profile-pic" onerror="this.src='https://via.placeholder.com/150/1e293b/38bdf8?text=LS'">
+        
         <h1>Lakhwinder Singh</h1>
         <h2>Software Engineer | Flutter & Android Expert</h2>
         <p>Hello Everyone! I'm a Software Engineer specializing in creating high-performance applications. With expertise in Mobile architecture, Payment Gateways, and complex API integrations, I build robust and scalable solutions.</p>
