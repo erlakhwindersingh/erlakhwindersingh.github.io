@@ -10,30 +10,24 @@
             margin: 0; padding: 0; box-sizing: border-box;
         }
 
-        /* NEW Image Matching Gradient: Deep Slate Navy (No bright blue, just dark premium navy) */
+        /* Exact Bottom Image Color with Bottom Cyan Glow */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(-45deg, #020617, #0f172a, #0b1120, #1e293b, #020617);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background-color: #0b1121; /* Deep Dark Navy from the image bottom */
+            background-image: radial-gradient(circle at bottom center, rgba(0, 246, 255, 0.15) 0%, transparent 60%);
+            background-attachment: fixed; /* Keeps the glow fixed at the bottom of the screen */
             color: #f8fafc;
             line-height: 1.6;
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         /* Advanced Glassmorphism */
         .glass-card {
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.4);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 246, 255, 0.15); /* Neon Cyan subtle border */
+            border: 1px solid rgba(0, 246, 255, 0.1); 
             border-radius: 16px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
@@ -41,7 +35,7 @@
         /* Perfectly Aligned Navigation */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(2, 6, 23, 0.7);
+            background: rgba(11, 17, 33, 0.85); /* Matches dark background */
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             padding: 20px 10%; 
@@ -101,7 +95,7 @@
         
         .btn-primary { 
             background: #00f6ff; 
-            color: #020617; 
+            color: #0b1121; 
             border: none; 
             box-shadow: 0 4px 15px rgba(0, 246, 255, 0.4); 
         }
@@ -168,7 +162,7 @@
         
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            nav { flex-direction: column; padding: 15px; gap: 15px; background: rgba(2, 6, 23, 0.9); }
+            nav { flex-direction: column; padding: 15px; gap: 15px; background: rgba(11, 17, 33, 0.95); }
             nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
             #home { padding-top: 180px; }
             #home h1 { font-size: 2.2em; }
@@ -194,7 +188,7 @@
     </nav>
 
     <section id="home">
-        <img src="profile.jpg" alt="Lakhwinder Singh" class="profile-pic" onerror="this.src='https://via.placeholder.com/150/0f172a/00f6ff?text=LS'">
+        <img src="profile.jpg" alt="Lakhwinder Singh" class="profile-pic" onerror="this.src='https://via.placeholder.com/150/0b1121/00f6ff?text=LS'">
         
         <h1>Lakhwinder Singh</h1>
         <h2>Software Engineer | Flutter & Android Expert</h2>
