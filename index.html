@@ -24,8 +24,8 @@
             background-color: #1a1d24; 
             color: #ffffff;
             line-height: 1.6;
-            scroll-behavior: smooth;
             overflow-x: hidden;
+            /* scroll-behavior: smooth; ko hata diya taaki JS animation theek se chale */
         }
 
         /* Navigation Bar */
@@ -191,6 +191,22 @@
         </ul>
     </nav>
 
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // Niche se upar aane wali feel dene ke liye custom scroll
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50, // Navbar offset adjustment
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
     <section id="home">
         
         <div class="hero-content">
@@ -209,7 +225,7 @@
             <div class="hex-wrapper">
                 <div class="hex-glow"></div>
                 <div class="hex-border"></div>
-                <img src="profile.jpg" alt="Lakhwinder Singh" class="hex-img" onerror="this.src='https://via.placeholder.com/400x450/1a1d24/00f6ff?text=LS'">
+                <img src="me.jpeg" alt="Lakhwinder Singh" class="hex-img" onerror="this.src='https://via.placeholder.com/400x450/1a1d24/00f6ff?text=LS'">
             </div>
         </div>
 
