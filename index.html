@@ -11,7 +11,7 @@
         /* Exact Dark Matte Background from Image */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #1a1d24; /* Premium matte dark grey */
+            background-color: #1a1d24; 
             color: #ffffff;
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -28,7 +28,7 @@
             z-index: 1000; 
         }
         nav .logo { font-size: 1.8em; font-weight: 800; color: #ffffff; }
-        nav .logo span { color: #00f6ff; /* Neon Cyan */ }
+        nav .logo span { color: #00f6ff; }
         
         nav ul { list-style: none; display: flex; gap: 30px; }
         nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1em; transition: 0.3s; }
@@ -56,7 +56,7 @@
         .hero-content h2 span { color: #00f6ff; }
         .hero-content p { color: #cbd5e1; font-size: 1.1em; line-height: 1.7; margin-bottom: 30px; }
 
-        /* Social Icons (Circles like Image) */
+        /* Social Icons */
         .social-icons { display: flex; gap: 15px; margin-bottom: 30px; }
         .social-icons a {
             display: flex; justify-content: center; align-items: center;
@@ -71,7 +71,7 @@
         .btn { display: inline-block; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
         .btn-primary { 
             background: #00f6ff; color: #1a1d24; 
-            box-shadow: 0 0 20px rgba(0, 246, 255, 0.5); /* Neon Glow */
+            box-shadow: 0 0 20px rgba(0, 246, 255, 0.5);
         }
         .btn-primary:hover { box-shadow: 0 0 35px rgba(0, 246, 255, 0.8); transform: translateY(-3px); }
         .btn-outline { border: 2px solid #00f6ff; color: #00f6ff; }
@@ -91,7 +91,6 @@
             display: flex; justify-content: center; align-items: center;
         }
         
-        /* The blurry neon shadow behind hexagon */
         .hex-glow {
             position: absolute;
             width: 100%; height: 100%;
@@ -101,7 +100,6 @@
             z-index: 1;
         }
 
-        /* The crisp solid neon border */
         .hex-border {
             position: absolute;
             width: 98%; height: 98%;
@@ -110,14 +108,13 @@
             z-index: 2;
         }
 
-        /* The actual photo */
         .hex-img {
             position: relative;
             width: 93%; height: 93%;
             object-fit: cover;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             z-index: 3;
-            background-color: #1a1d24; /* Fallback if transparent */
+            background-color: #1a1d24; 
         }
 
         /* Generic Section Styling */
@@ -138,7 +135,18 @@
         .timeline-container { margin-top: 20px; }
         .timeline-item { display: flex; gap: 25px; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
         .timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .company-logo { width: 55px; height: 55px; background: rgba(0, 246, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6em; flex-shrink: 0; border: 1px solid #00f6ff; }
+        
+        /* Fixed Company Logo Styling (No Image Files Needed) */
+        .company-logo { 
+            width: 60px; height: 60px; 
+            background: rgba(0, 246, 255, 0.1); 
+            border-radius: 12px; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 1.2em; font-weight: 800; color: #00f6ff;
+            flex-shrink: 0; border: 2px solid rgba(0, 246, 255, 0.5); 
+            text-align: center; line-height: 1.2; box-shadow: 0 0 10px rgba(0, 246, 255, 0.2);
+        }
+        
         .exp-details h3 { font-size: 1.4em; margin: 0 0 5px; color: #00f6ff; }
         .exp-details h4 { font-size: 1.05em; color: #f8fafc; margin: 0 0 5px; }
         .exp-details .meta { font-size: 0.9em; color: #94a3b8; margin-bottom: 15px; display: inline-block; background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 20px; }
@@ -219,7 +227,7 @@
         <div class="timeline-container glass-card">
             
             <div class="timeline-item">
-                <div class="company-logo">🏢</div>
+                <div class="company-logo">To<br>XSL</div>
                 <div class="exp-details">
                     <h3>ToXSL Technologies</h3>
                     <h4>Full-time · Mohali, India (On-site)</h4>
@@ -227,7 +235,7 @@
                     
                     <div class="inner-role">
                         <h5>Flutter Developer</h5>
-                        <span>Apr 2026 - Present · Currently Working</span>
+                        <span>Apr 2026 - Present · 2 mos</span>
                         <p>Leading Flutter-based mobile app development and building clean workflow structures.</p>
                     </div>
                     <div class="inner-role">
@@ -244,7 +252,7 @@
             </div>
 
             <div class="timeline-item">
-                <div class="company-logo">💻</div>
+                <div class="company-logo">SM</div>
                 <div class="exp-details">
                     <h3>SourceMash</h3>
                     <h4>Android Developer · Full-time</h4>
@@ -254,9 +262,7 @@
             </div>
 
             <div class="timeline-item">
-                <div class="company-logo" style="background: transparent; padding: 5px; border-color: #00f6ff;">
-                    <img src="cs-logo.png" alt="CS Soft Solutions Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
-                </div>
+                <div class="company-logo">CS</div>
                 <div class="exp-details">
                     <h3>CS Soft Solutions (India) Pvt Ltd</h3>
                     <h4>Android Developer · Apprenticeship</h4>
