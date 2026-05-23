@@ -15,7 +15,7 @@
             100% { transform: rotate(0deg); }
         }
 
-        /* Animated Gradient Background using your exact color (#1a1d24) */
+        /* Continuous Slow & Subtle Gradient Animation for the background */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -25,12 +25,13 @@
         /* General Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Solid matte dark background converted to a smooth subtle gradient */
+        /* Subtle Dark Gradient Background with Slow Animation */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(-45deg, #1a1d24, #0f1115, #222630, #14161c);
+            /* Based on your original #1a1d24, creating a very subtle dark animation */
+            background: linear-gradient(-45deg, #1a1d24, #121419, #232730, #1a1d24);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 18s ease infinite; /* Very slow 18s for 'light' effect */
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
@@ -63,16 +64,16 @@
             margin: 0 auto;
         }
 
-        /* Hero Content (Left Side) - Alignment Fixed Here */
+        /* Hero Content (Left Side) */
         .hero-content {
             flex: 1;
-            max-width: 650px; /* Adjusted width for perfect text fit */
+            max-width: 650px; /* Adjusted for better text layout */
         }
         .hero-content h1 { font-size: 3.5em; font-weight: 800; margin-bottom: 5px; line-height: 1.1; }
         .hero-content h2 { font-size: 1.8em; font-weight: 600; margin-bottom: 20px; }
         .hero-content h2 span { color: #00f6ff; }
         
-        /* Text Box Layout fixes */
+        /* ALIGNMENT FIX: Restoring missing CSS for hero-text-box */
         .hero-text-box { margin-bottom: 30px; }
         .hero-text-box .highlight-text {
             color: #ffffff; font-weight: 600; font-size: 1.1em;
@@ -207,6 +208,7 @@
     </nav>
 
     <script>
+        // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -214,7 +216,7 @@
                 const targetSection = document.querySelector(targetId);
                 
                 window.scrollTo({
-                    top: targetSection.offsetTop - 50, 
+                    top: targetSection.offsetTop - 50, // Navbar offset adjustment
                     behavior: 'smooth'
                 });
             });
