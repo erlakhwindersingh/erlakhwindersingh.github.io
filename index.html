@@ -25,34 +25,31 @@
         /* General Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* BODY and Global Background Fix */
+        /* FULL SCREEN ANIMATED GRADIENT FIX - Only Dark Subtle Cyan/Navy Tones */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            /* Using solid color #1a1d24 everywhere as base */
-            background-color: #1a1d24;
+            /* Same dark level colors mixed with the cyan from your photo, no bright flashes */
+            background: linear-gradient(-45deg, #111820, #141c24, #0f161c, #161a22);
+            background-size: 400% 400%;
+            /* Fixed attachment ensures it covers the full screen while scrolling down */
+            background-attachment: fixed; 
+            animation: gradientBG 15s ease infinite;
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Navigation Bar - COLOR FIXED TO MATCH BODY EXACTLY */
+        /* Navigation Bar */
         nav {
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%;
-            /* Removed transparency and blur to make it match the body exactly */
-            background-color: #1a1d24; 
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(26, 29, 36, 0.95);
+            backdrop-filter: blur(10px);
             padding: 25px 10%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; 
-            /* Subtle border for separation, but color matches */
-            border-bottom: 1px solid rgba(255,255,255,0.03);
         }
         nav .logo { font-size: 1.8em; font-weight: 800; color: #ffffff; }
         nav .logo span { color: #00f6ff; }
@@ -75,7 +72,7 @@
         /* Hero Content (Left Side) */
         .hero-content {
             flex: 1;
-            max-width: 650px; 
+            max-width: 600px;
         }
         .hero-content h1 { font-size: 3.5em; font-weight: 800; margin-bottom: 5px; line-height: 1.1; }
         .hero-content h2 { font-size: 1.8em; font-weight: 600; margin-bottom: 20px; }
@@ -142,38 +139,32 @@
             background-color: #1a1d24; 
         }
 
-        /* Generic Section Styling - background removed to show body background */
-        section:not(#home) { 
-            padding: 100px 5% 60px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-        }
+        /* Generic Section Styling */
+        section:not(#home) { padding: 100px 5% 60px; max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
         .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; font-weight: 700; }
         .section-title span { color: #00f6ff; }
 
-        /* Glass Cards adjusted for transparency over the solid background */
         .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
             padding: 30px;
         }
 
         /* Experience Timeline */
         .timeline-container { margin-top: 20px; }
-        .timeline-item { display: flex; gap: 25px; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.03); transition: 0.3s; }
+        .timeline-item { display: flex; gap: 25px; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
         .timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
         
         .company-logo { 
             width: 60px; height: 60px; 
-            background: rgba(0, 246, 255, 0.05); 
+            background: rgba(0, 246, 255, 0.1); 
             border-radius: 12px; 
             display: flex; align-items: center; justify-content: center; 
             font-size: 1.2em; font-weight: 800; color: #00f6ff;
-            flex-shrink: 0; border: 2px solid rgba(0, 246, 255, 0.3); 
-            text-align: center; line-height: 1.2; box-shadow: 0 0 10px rgba(0, 246, 255, 0.1);
+            flex-shrink: 0; border: 2px solid rgba(0, 246, 255, 0.5); 
+            text-align: center; line-height: 1.2; box-shadow: 0 0 10px rgba(0, 246, 255, 0.2);
         }
 
         .exp-details h3 { font-size: 1.4em; margin: 0 0 5px; color: #00f6ff; }
@@ -188,16 +179,16 @@
 
         /* Skills Grid */
         .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-        .skill-tag { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 246, 255, 0.1); padding: 10px 22px; border-radius: 30px; font-size: 0.95em; transition: 0.3s; color: #cbd5e1; }
-        .skill-tag:hover { border-color: #00f6ff; color: #1a1d24; background: #00f6ff; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 246, 255, 0.3); }
+        .skill-tag { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 246, 255, 0.2); padding: 10px 22px; border-radius: 30px; font-size: 0.95em; transition: 0.3s; color: #cbd5e1; }
+        .skill-tag:hover { border-color: #00f6ff; color: #1a1d24; background: #00f6ff; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 246, 255, 0.4); }
 
         /* Projects Grid */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .project-card { padding: 30px; transition: 0.4s; position: relative; overflow: hidden; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; }
-        .project-card:hover { border-color: #00f6ff; transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); background: rgba(255,255,255,0.03); }
+        .project-card { padding: 30px; transition: 0.4s; position: relative; overflow: hidden; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; }
+        .project-card:hover { border-color: #00f6ff; transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); background: rgba(255,255,255,0.05); }
         .project-card h3 { font-size: 1.3em; margin: 0 0 12px; color: #fff; }
         .project-card p { font-size: 0.95em; color: #94a3b8; margin-bottom: 20px; line-height: 1.6; }
-        .tech-stack { font-size: 0.85em; color: #00f6ff; background: rgba(0, 246, 255, 0.05); padding: 6px 12px; border-radius: 20px; display: inline-block; border: 1px solid rgba(0, 246, 255, 0.2); }
+        .tech-stack { font-size: 0.85em; color: #00f6ff; background: rgba(0, 246, 255, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block; border: 1px solid rgba(0, 246, 255, 0.3); }
 
         /* Responsive Design */
         @media (max-width: 900px) {
@@ -212,7 +203,7 @@
 <body>
 
     <nav>
-        <div class="logo">Portfolio<span>.</span></div>
+        <div class="logo">Welcome<span>.</span></div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -229,7 +220,7 @@
                 const targetSection = document.querySelector(targetId);
                 
                 window.scrollTo({
-                    top: targetSection.offsetTop - 50, 
+                    top: targetSection.offsetTop - 50, // Navbar offset adjustment
                     behavior: 'smooth'
                 });
             });
@@ -239,7 +230,6 @@
     <section id="home">
         
         <div class="hero-content">
-            <h3>Hello, It's Me</h3>
             <h1>Lakhwinder Singh</h1>
             <h2>And I'm a <span>Sr. Software Engineer</span></h2>
             
@@ -403,7 +393,6 @@
                 <p>Engineered an end-to-end parking solution. Managed UI state efficiently using optimized custom classes over default ViewModels.</p>
                 <div class="tech-stack">Android, Kotlin, Custom UI</div>
             </div>
-
 
         </div>
     </section>
