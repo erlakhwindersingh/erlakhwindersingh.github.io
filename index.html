@@ -5,205 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Er. Lakhwinder Singh - Portfolio</title>
     <style>
-        /* CSS keyframes for smooth hexagon animation */
         @keyframes slowShake {
             0% { transform: rotate(0deg); }
-            20% { transform: rotate(1deg); }
-            40% { transform: rotate(-1deg); }
-            60% { transform: rotate(1deg); }
-            80% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
             100% { transform: rotate(0deg); }
         }
 
-        /* Continuous Smooth Gradient Animation */
+        /* Smooth Gradient Animation for FULL SCREEN (Navbar + Body) */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* General Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* FULL SCREEN ANIMATED GRADIENT FIX - Only Dark Subtle Cyan/Navy Tones */
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
-            /* Same dark level colors mixed with the cyan from your photo, no bright flashes */
-            background: linear-gradient(-45deg, #111820, #141c24, #0f161c, #161a22);
+            /* Gradient moves between your base color and a very soft cyan glow */
+            background: linear-gradient(-45deg, #141c24, #1a2a3a, #141c24, #0d1e24);
             background-size: 400% 400%;
-            /* Fixed attachment ensures it covers the full screen while scrolling down */
-            background-attachment: fixed; 
+            background-attachment: fixed;
             animation: gradientBG 15s ease infinite;
             color: #ffffff;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Navigation Bar */
+        /* Navigation Bar - Integrated with Background */
         nav {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(26, 29, 36, 0.95);
-            backdrop-filter: blur(10px);
+            position: fixed; top: 0; width: 100%;
+            /* Navbar now shares the background effect */
+            background: rgba(20, 28, 36, 0.9);
             padding: 25px 10%; 
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; 
+            /* Light Neon Cyan line at the bottom of Navbar */
+            border-bottom: 2px solid rgba(0, 246, 255, 0.4);
+            box-shadow: 0 2px 10px rgba(0, 246, 255, 0.1);
         }
         nav .logo { font-size: 1.8em; font-weight: 800; color: #ffffff; }
         nav .logo span { color: #00f6ff; }
         
         nav ul { list-style: none; display: flex; gap: 30px; }
-        nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1em; transition: 0.3s; }
+        nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; transition: 0.3s; }
         nav ul li a:hover { color: #00f6ff; }
 
         /* Hero Section */
         #home {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 120px 10% 60px;
-            max-width: 1400px;
-            margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 120px 10% 60px; max-width: 1400px; margin: 0 auto;
         }
 
-        /* Hero Content (Left Side) */
-        .hero-content {
-            flex: 1;
-            max-width: 600px;
-        }
-        .hero-content h1 { font-size: 3.5em; font-weight: 800; margin-bottom: 5px; line-height: 1.1; }
-        .hero-content h2 { font-size: 1.8em; font-weight: 600; margin-bottom: 20px; }
-        .hero-content h2 span { color: #00f6ff; }
+        .hero-content { flex: 1; max-width: 650px; }
+        .hero-content h1 { font-size: 3.5em; font-weight: 800; }
+        .hero-content h2 { font-size: 1.8em; color: #00f6ff; margin-bottom: 20px; }
         
-        /* Text Box Layout */
         .hero-text-box { margin-bottom: 30px; }
-        .hero-text-box .highlight-text {
-            color: #ffffff; font-weight: 600; font-size: 1.1em;
-            margin-bottom: 15px; border-left: 3px solid #00f6ff; padding-left: 15px;
-        }
-        .hero-text-box h4 { color: #00f6ff; font-size: 1.05em; margin-top: 15px; margin-bottom: 5px; }
-        .hero-text-box p { color: #cbd5e1; font-size: 0.95em; line-height: 1.6; text-align: justify; }
+        .highlight-text { color: #ffffff; font-weight: 600; border-left: 3px solid #00f6ff; padding-left: 15px; margin-bottom: 15px; }
+        h4 { color: #00f6ff; margin-top: 15px; }
+        p { color: #cbd5e1; font-size: 0.95em; line-height: 1.6; text-align: justify; }
 
         /* Glowing Buttons */
         .header-buttons { display: flex; gap: 15px; }
-        .btn { display: inline-block; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
-        .btn-primary { 
-            background: #00f6ff; color: #1a1d24; 
-            box-shadow: 0 0 20px rgba(0, 246, 255, 0.5); 
-        }
-        .btn-primary:hover { box-shadow: 0 0 35px rgba(0, 246, 255, 0.8); transform: translateY(-3px); }
+        .btn { padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; }
+        .btn-primary { background: #00f6ff; color: #141c24; box-shadow: 0 0 15px rgba(0, 246, 255, 0.3); }
         .btn-outline { border: 2px solid #00f6ff; color: #00f6ff; }
-        .btn-outline:hover { background: rgba(0, 246, 255, 0.1); transform: translateY(-3px); box-shadow: 0 0 15px rgba(0, 246, 255, 0.3); }
 
-        /* Hero Image (Right Side Hexagon) */
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            padding-right: 20px;
-        }
-
+        /* Right Side Hexagon */
         .hex-wrapper {
-            position: relative;
-            width: 380px; height: 430px;
+            position: relative; width: 380px; height: 430px;
             display: flex; justify-content: center; align-items: center;
             animation: slowShake 2.5s ease-in-out infinite;
         }
-        
-        .hex-glow {
-            position: absolute;
-            width: 100%; height: 100%;
-            background: #00f6ff;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            filter: blur(25px);
-            z-index: 1;
-        }
+        .hex-glow { position: absolute; width: 100%; height: 100%; background: #00f6ff; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); filter: blur(25px); opacity: 0.5; }
+        .hex-border { position: absolute; width: 98%; height: 98%; background: #00f6ff; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+        .hex-img { position: relative; width: 93%; height: 93%; object-fit: cover; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background-color: #141c24; }
 
-        .hex-border {
-            position: absolute;
-            width: 98%; height: 98%;
-            background: #00f6ff;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            z-index: 2;
-        }
-
-        .hex-img {
-            position: relative;
-            width: 93%; height: 93%;
-            object-fit: cover;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            z-index: 3;
-            background-color: #1a1d24; 
-        }
-
-        /* Generic Section Styling */
-        section:not(#home) { padding: 100px 5% 60px; max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
-        .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; font-weight: 700; }
+        /* Sections */
+        section:not(#home) { padding: 100px 5% 60px; max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(0, 246, 255, 0.1); }
+        .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; }
         .section-title span { color: #00f6ff; }
+        .glass-card { background: rgba(0,0,0,0.2); padding: 30px; border-radius: 16px; }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            padding: 30px;
-        }
+        /* Timeline & Skills */
+        .timeline-item { display: flex; gap: 25px; margin-bottom: 35px; border-bottom: 1px solid rgba(0, 246, 255, 0.1); padding-bottom: 25px; }
+        .company-logo { width: 60px; height: 60px; background: rgba(0, 246, 255, 0.05); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #00f6ff; border: 1px solid #00f6ff; }
+        .skill-tag { background: rgba(0, 246, 255, 0.05); border: 1px solid rgba(0, 246, 255, 0.2); padding: 10px 22px; border-radius: 30px; }
 
-        /* Experience Timeline */
-        .timeline-container { margin-top: 20px; }
-        .timeline-item { display: flex; gap: 25px; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-        .timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        
-        .company-logo { 
-            width: 60px; height: 60px; 
-            background: rgba(0, 246, 255, 0.1); 
-            border-radius: 12px; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 1.2em; font-weight: 800; color: #00f6ff;
-            flex-shrink: 0; border: 2px solid rgba(0, 246, 255, 0.5); 
-            text-align: center; line-height: 1.2; box-shadow: 0 0 10px rgba(0, 246, 255, 0.2);
-        }
-
-        .exp-details h3 { font-size: 1.4em; margin: 0 0 5px; color: #00f6ff; }
-        .exp-details h4 { font-size: 1.05em; color: #f8fafc; margin: 0 0 5px; }
-        .exp-details .meta { font-size: 0.9em; color: #94a3b8; margin-bottom: 15px; display: inline-block; background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 20px; }
-        
-        .inner-role { margin-left: 15px; border-left: 2px solid #00f6ff; padding-left: 20px; margin-bottom: 20px; position: relative; }
-        .inner-role::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; background: #00f6ff; border-radius: 50%; box-shadow: 0 0 10px #00f6ff; }
-        .inner-role h5 { font-size: 1.1em; color: #f8fafc; }
-        .inner-role span { font-size: 0.85em; color: #94a3b8; font-style: italic; }
-        .inner-role p { font-size: 0.95em; color: #cbd5e1; margin-top: 8px; }
-
-        /* Skills Grid */
-        .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-        .skill-tag { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 246, 255, 0.2); padding: 10px 22px; border-radius: 30px; font-size: 0.95em; transition: 0.3s; color: #cbd5e1; }
-        .skill-tag:hover { border-color: #00f6ff; color: #1a1d24; background: #00f6ff; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 246, 255, 0.4); }
-
-        /* Projects Grid */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .project-card { padding: 30px; transition: 0.4s; position: relative; overflow: hidden; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; }
-        .project-card:hover { border-color: #00f6ff; transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); background: rgba(255,255,255,0.05); }
-        .project-card h3 { font-size: 1.3em; margin: 0 0 12px; color: #fff; }
-        .project-card p { font-size: 0.95em; color: #94a3b8; margin-bottom: 20px; line-height: 1.6; }
-        .tech-stack { font-size: 0.85em; color: #00f6ff; background: rgba(0, 246, 255, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block; border: 1px solid rgba(0, 246, 255, 0.3); }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 900px) {
-            #home { flex-direction: column-reverse; text-align: center; padding-top: 140px; justify-content: center; gap: 50px; }
+            #home { flex-direction: column-reverse; padding-top: 140px; text-align: center; }
             .hero-image { justify-content: center; padding-right: 0; }
-            .hex-wrapper { width: 300px; height: 340px; }
-            nav { flex-direction: column; padding: 15px; gap: 15px; }
-            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Welcome<span>.</span></div>
+        <div class="logo">Portfolio<span>.</span></div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -216,186 +117,37 @@
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetSection.offsetTop - 50, // Navbar offset adjustment
-                    behavior: 'smooth'
-                });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
 
     <section id="home">
-        
         <div class="hero-content">
             <h1>Lakhwinder Singh</h1>
             <h2>And I'm a <span>Sr. Software Engineer</span></h2>
-            
             <div class="hero-text-box">
                 <p class="highlight-text">Team Lead – Mobile Apps | Android & Flutter Development</p>
-                
                 <h4>Core Skills</h4>
-                <p>Flutter • Android • Python • OOP • Mobile Architecture • REST API Integration • Firebase • State Management • UI/UX Optimization • Performance Optimization • Clean Architecture</p>
-                
+                <p>Flutter • Android • Python • OOP • Mobile Architecture • REST API Integration • Firebase • State Management</p>
                 <h4>Mobile Application Development</h4>
-                <p>Experienced Mobile Application Developer specializing in building high-performance, scalable, and user-centric digital solutions. Skilled in Flutter, Android SDK, and modern mobile architectures with strong expertise in complex API integrations and clean code practices.</p>
-
+                <p>Experienced Mobile Application Developer specializing in high-performance, scalable solutions.</p>
                 <h4>Python Development</h4>
-                <p>Proficient in Python development with experience in automation, backend logic, API handling, and scalable software solutions. Strong understanding of object-oriented programming (OOP) and efficient problem-solving approaches.</p>
+                <p>Proficient in Python development for automation, backend logic, and scalable software solutions.</p>
             </div>
-            
             <div class="header-buttons">
                 <a href="mailto:your-email@example.com" class="btn btn-primary">✉️ Contact Me</a>
                 <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" target="_blank" class="btn btn-outline">🏆 Python Certificate</a>
             </div>
         </div>
-
         <div class="hero-image">
             <div class="hex-wrapper">
                 <div class="hex-glow"></div>
                 <div class="hex-border"></div>
-                <img src="me.jpeg" alt="Lakhwinder Singh" class="hex-img" onerror="this.src='https://via.placeholder.com/400x450/1a1d24/00f6ff?text=LS'">
+                <img src="me.jpeg" alt="Lakhwinder Singh" class="hex-img">
             </div>
-        </div>
-
-    </section>
-    
-    <section id="experience">
-        <h2 class="section-title">Professional <span>Experience</span></h2>
-        <div class="timeline-container glass-card">
-            
-            <div class="timeline-item">
-                <div class="company-logo">To<br>XSL</div>
-                <div class="exp-details">
-                    <h3>ToXSL Technologies - Mobile App Development Company</h3>
-                    <h4>Android & Flutter - Developer - Full-time · 2 yrs 1 months · Mohali, India (On-site)</h4>
-                    <span class="meta">April 2026 - Present</span>
-                    
-                    <div class="inner-role">
-                        <h5>Flutter Developer</h5>
-                        <span>Apr 2026 - Present · Mohali, India (On-site)</span>
-                        <p>Leading Flutter-based mobile application development and building clean, scalable workflow structures.</p>
-                    </div>
-                    
-                    <div class="inner-role">
-                        <h5>Sr. Android Mobile Apps</h5>
-                        <span>Nov 2024 - Present · 1 yr 7 months · Mohali, India (On-site)</span>
-                        <p>Managed SQL databases, advanced Java implementations, and customized native hardware integrations.</p>
-                    </div>
-                    
-                    <div class="inner-role">
-                        <h5>Sr. Android Developer</h5>
-                        <span>May 2024 - Jan 2025 · 9 months · Mohali, India (On-site)</span>
-                        <p>Specialized in responsive XML layouts, complex server communication through APIs, and state management.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="company-logo">SM</div>
-                <div class="exp-details">
-                    <h3>SourceMash Technologies - Best IT Company In India</h3>
-                    <h4>Android Developer · Full-time</h4>
-                    <span class="meta">Jun 2022 - Feb 2024 · 1 yr 9 months · Mohali, India (On-site)</span>
-                    <p>Focused on extensive XML design, seamless API communication, and deploying solid mobile architectures.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="company-logo">CS</div>
-                <div class="exp-details">
-                    <h3>CS Soft Solutions (India) Pvt Ltd</h3>
-                    <h4>Android Developer · Android Developer Internship</h4>
-                    <span class="meta">Jan 2020 - Jun 2020 · 6 months · Mohali, India (On-site)</span>
-                    <p>Core Android framework development, implementing basic object-oriented programming concepts, and mastering SDK utilization.</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <section id="skills">
-        <h2 class="section-title">Technical <span>Skills</span></h2>
-        <div class="skills-grid">
-            <div class="skill-tag">Flutter</div>
-            <div class="skill-tag">Kotlin & Coroutines</div>
-            <div class="skill-tag">Java (Core & Advanced)</div>
-            <div class="skill-tag">Python (OOPs)</div>
-            <div class="skill-tag">C / C++</div>
-            <div class="skill-tag">MVVM & MVC Architecture</div>
-            <div class="skill-tag">Android SDK & Framework</div>
-            <div class="skill-tag">KMP Multiplatform</div>
-            <div class="skill-tag">Payment Gateways</div>
-            <div class="skill-tag">Google Firebase</div>
-            <div class="skill-tag">SQL & Databases</div>
-            <div class="skill-tag">RESTful APIs</div>
-            <div class="skill-tag">DPM (Device Policy Manager)</div>
-            <div class="skill-tag">Git & GitHub</div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2 class="section-title">Featured <span>Projects</span></h2>
-        <div class="projects-grid">
-            
-            <div class="project-card">
-                <h3>DPM & Device Locking Apps</h3>
-                <p>Created specialized Android applications utilizing Device Policy Management (DPM) for restricted device control and strict security policies.</p>
-                <div class="tech-stack">Android SDK, Java, DPM</div>
-            </div>
-            
-            <div class="project-card">
-                <h3>Hardware Connectivity Apps</h3>
-                <p>Built highly specialized applications bridging direct hardware logic and external sensors with Android system protocols.</p>
-                <div class="tech-stack">Java, C++, Sensors</div>
-            </div>
-
-            <div class="project-card">
-                <h3>Smart Home & Speaker Connect</h3>
-                <p>Engineered IoT connectivity applications to control smart home devices and seamlessly sync mobile audio with external Bluetooth speakers.</p>
-                <div class="tech-stack">Java, IoT, Bluetooth</div>
-            </div>
-            
-            <div class="project-card">
-                <h3>Cabs Booking App</h3>
-                <p>Developed dynamic features for seamless ride-booking, real-time map navigation, and efficient driver-to-user communication.</p>
-                <div class="tech-stack">Flutter, APIs, Maps</div>
-            </div>
-            
-            <div class="project-card">
-                <h3>Child Tracking App</h3>
-                <p>Engineered an end-to-end child tracking solution featuring real-time location sharing and accurate geofencing security alerts.</p>
-                <div class="tech-stack">Android, Kotlin, GPS</div>
-            </div>
-            
-            <div class="project-card">
-                <h3>E-commerce Application</h3>
-                <p>Designed a high-performance e-commerce platform with clean UI separation, secure payment gateways, and intuitive user workflows.</p>
-                <div class="tech-stack">Flutter, Firebase, APIs</div>
-            </div>
-            
-            <div class="project-card">
-                <h3>Restaurant & Food Order Apps</h3>
-                <p>Developed robust food delivery applications with a seamless operational flow, dynamic cart management, and real-time order tracking.</p>
-                <div class="tech-stack">Android SDK, MVVM</div>
-            </div>
-            
-            <div class="project-card">
-                <h3>Video Calling & Dating Apps</h3>
-                <p>Built scalable backend architectures for real-time video communication and secure, fast matchmaking user profiles.</p>
-                <div class="tech-stack">Kotlin, WebRTC, APIs</div>
-            </div>
-            
-            <div class="project-card">
-                <h3>Smart Car Parking App</h3>
-                <p>Engineered an end-to-end parking solution. Managed UI state efficiently using optimized custom classes over default ViewModels.</p>
-                <div class="tech-stack">Android, Kotlin, Custom UI</div>
-            </div>
-
-        </div>
-    </section>
-
-</body>
+    </body>
 </html>
