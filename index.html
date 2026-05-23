@@ -10,10 +10,9 @@
             margin: 0; padding: 0; box-sizing: border-box;
         }
 
-        /* Multiple Gradient Animated Background */
+        /* Multiple Gradient Animated Background (No Blue - Dark Emerald, Purple, Obsidian) */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            /* Naya Gradient: Dark Gray, Deep Emerald, aur Dark Purple */
             background: linear-gradient(-45deg, #111827, #4c1d95, #064e3b, #2e1065, #1c1917);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -51,19 +50,19 @@
         }
         nav .logo { 
             font-size: 1.6em; font-weight: 800; letter-spacing: 1px;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
+            background: linear-gradient(to right, #34d399, #f8fafc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         nav ul { list-style: none; display: flex; gap: 25px; }
         nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1em; transition: 0.3s; }
-        nav ul li a:hover { color: #38bdf8; text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+        nav ul li a:hover { color: #34d399; text-shadow: 0 0 10px rgba(52, 211, 153, 0.5); }
 
         /* General Section Settings */
         section { padding: 100px 5% 60px; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; font-weight: 700; color: #fff; }
         .section-title span { 
-            background: linear-gradient(to right, #38bdf8, #34d399);
+            background: linear-gradient(to right, #34d399, #10b981);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -77,14 +76,14 @@
         }
         .profile-pic {
             width: 150px; height: 150px; border-radius: 50%; object-fit: cover; 
-            border: 3px solid #38bdf8; margin-bottom: 25px; 
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+            border: 3px solid #34d399; margin-bottom: 25px; 
+            box-shadow: 0 0 25px rgba(52, 211, 153, 0.6);
             animation: float 4s ease-in-out infinite;
         }
         
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); box-shadow: 0 0 35px rgba(56, 189, 248, 0.8); }
+            50% { transform: translateY(-10px); box-shadow: 0 0 35px rgba(52, 211, 153, 0.8); }
             100% { transform: translateY(0px); }
         }
 
@@ -93,7 +92,7 @@
             background: linear-gradient(to right, #ffffff, #94a3b8);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        #home h2 { font-size: 1.25em; color: #7dd3fc; margin: 0 0 20px; font-weight: 400; letter-spacing: 1px; }
+        #home h2 { font-size: 1.25em; color: #6ee7b7; margin: 0 0 20px; font-weight: 400; letter-spacing: 1px; }
         #home p { 
             width: 100%; max-width: 750px;
             margin: 0 auto 25px; color: #cbd5e1; font-size: 1.1em; 
@@ -102,8 +101,8 @@
         
         .header-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
         .btn { display: inline-block; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; letter-spacing: 0.5px; }
-        .btn-primary { background: linear-gradient(to right, #0ea5e9, #2563eb); color: white; border: none; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(14, 165, 233, 0.6); }
+        .btn-primary { background: linear-gradient(to right, #10b981, #059669); color: white; border: none; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6); }
         .btn-cert { background: rgba(250, 204, 21, 0.1); color: #facc15; border: 1px solid #facc15; }
         .btn-cert:hover { background: rgba(250, 204, 21, 0.2); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(250, 204, 21, 0.3); }
 
@@ -120,13 +119,13 @@
         }
         
         .exp-details { width: 100%; }
-        .exp-details h3 { font-size: 1.4em; margin: 0 0 5px; color: #38bdf8; }
+        .exp-details h3 { font-size: 1.4em; margin: 0 0 5px; color: #34d399; }
         .exp-details h4 { font-size: 1.05em; color: #f8fafc; font-weight: 500; margin: 0 0 5px; }
         .exp-details .meta { font-size: 0.9em; color: #94a3b8; margin-bottom: 15px; display: inline-block; background: rgba(0,0,0,0.2); padding: 4px 10px; border-radius: 20px; }
         
         /* Inner roles for ToXSL */
-        .inner-role { margin-left: 15px; border-left: 2px solid #38bdf8; padding-left: 20px; margin-bottom: 20px; position: relative; }
-        .inner-role::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; background: #38bdf8; border-radius: 50%; box-shadow: 0 0 10px #38bdf8; }
+        .inner-role { margin-left: 15px; border-left: 2px solid #34d399; padding-left: 20px; margin-bottom: 20px; position: relative; }
+        .inner-role::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; background: #34d399; border-radius: 50%; box-shadow: 0 0 10px #34d399; }
         .inner-role h5 { font-size: 1.1em; color: #f8fafc; margin: 0 0 3px; }
         .inner-role span { font-size: 0.85em; color: #94a3b8; font-style: italic; }
         .inner-role p { font-size: 0.95em; color: #cbd5e1; margin-top: 8px; }
@@ -139,8 +138,8 @@
             backdrop-filter: blur(5px);
         }
         .skill-tag:hover { 
-            border-color: #38bdf8; color: #fff; background: rgba(56, 189, 248, 0.15); 
-            transform: translateY(-5px) scale(1.05); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3); 
+            border-color: #34d399; color: #fff; background: rgba(52, 211, 153, 0.15); 
+            transform: translateY(-5px) scale(1.05); box-shadow: 0 5px 15px rgba(52, 211, 153, 0.3); 
         }
 
         /* Projects Section */
@@ -151,10 +150,10 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); transition: 0.5s;
         }
         .project-card:hover::before { left: 100%; }
-        .project-card:hover { border-color: #38bdf8; transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+        .project-card:hover { border-color: #34d399; transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
         .project-card h3 { font-size: 1.3em; margin: 0 0 12px; color: #f8fafc; }
         .project-card p { font-size: 0.95em; color: #cbd5e1; margin-bottom: 20px; line-height: 1.6; }
-        .tech-stack { font-size: 0.85em; color: #34d399; background: rgba(52, 211, 153, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block; border: 1px solid rgba(52, 211, 153, 0.2); }
+        .tech-stack { font-size: 0.85em; color: #10b981; background: rgba(16, 185, 129, 0.1); padding: 6px 12px; border-radius: 20px; display: inline-block; border: 1px solid rgba(16, 185, 129, 0.2); }
 
         /* Contact */
         #contact { text-align: center; padding-bottom: 80px; }
@@ -187,7 +186,7 @@
     </nav>
 
     <section id="home">
-        <img src="profile.jpg" alt="Lakhwinder Singh" class="profile-pic" onerror="this.src='https://via.placeholder.com/150/1e293b/38bdf8?text=LS'">
+        <img src="profile.jpg" alt="Lakhwinder Singh" class="profile-pic" onerror="this.src='https://via.placeholder.com/150/1e293b/34d399?text=LS'">
         
         <h1>Lakhwinder Singh</h1>
         <h2>Software Engineer | Flutter & Android Expert</h2>
