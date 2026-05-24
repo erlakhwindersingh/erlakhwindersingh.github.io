@@ -25,17 +25,17 @@
         /* General Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Animated Gradient Background using ONLY your original colors */
+        /* Animated Gradient Background using SOLID dark colors to prevent white bleed */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #1a1d24; 
-            /* Subtle animated gradient moving behind the glass elements */
+            
+            /* Solid dark colors blending your base #1a1d24 with deep cyan and grey */
             background: linear-gradient(
                 -45deg, 
                 #1a1d24, 
-                rgba(0, 246, 255, 0.08), 
+                #172931, /* Deep Cyan Tint */
                 #1a1d24, 
-                rgba(255, 255, 255, 0.04), 
+                #22262d, /* Deep Grey Tint */
                 #1a1d24
             );
             background-size: 400% 400%;
@@ -49,11 +49,11 @@
         /* Navigation Bar - Enhanced Glass Effect */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(26, 29, 36, 0.25); /* High transparency for glass */
-            backdrop-filter: blur(20px); /* Heavy blur */
+            background: rgba(26, 29, 36, 0.4); /* Perfect glass base */
+            backdrop-filter: blur(20px); 
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Shadow to separate from content */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
             padding: 25px 10%; 
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; 
