@@ -59,15 +59,15 @@
         /* Base Body */
         body {
             font-family: 'Poppins-Regular', sans-serif;
-            background-color: #080c13; /* Deep base to maintain text contrast */
+            background-color: #080c13; 
             
             /* Lighter vibrant undertones */
             background: linear-gradient(
                 -45deg, 
                 #080c13 0%, 
-                #0f3b4d 25%, /* Vibrant Teal */
+                #0f3b4d 25%, 
                 #080c13 50%, 
-                #144a66 75%, /* Vibrant Ocean Blue */
+                #144a66 75%, 
                 #080c13 100%
             );
             background-size: 400% 400%;
@@ -96,23 +96,22 @@
         }
 
         body::before {
-            background: #00f6ff; /* Bright Cyan */
+            background: #00f6ff; 
             top: -10%;
             left: -10%;
             animation: floatOrb1 20s infinite alternate ease-in-out;
         }
 
         body::after {
-            background: #00aaff; /* Bright Sky Blue */
+            background: #00aaff; 
             bottom: -10%;
             right: -10%;
             animation: floatOrb2 25s infinite alternate-reverse ease-in-out;
         }
 
-        /* Navigation Bar - Smoked Glass (Ensures text is 100% visible) */
+        /* Navigation Bar */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            /* Dark tinted glass so white text pops clearly */
             background: rgba(10, 15, 25, 0.65); 
             backdrop-filter: blur(25px) saturate(120%); 
             -webkit-backdrop-filter: blur(25px) saturate(120%);
@@ -177,7 +176,7 @@
         .hero-text-box p:last-child { margin-bottom: 0; }
 
         /* Glowing Buttons */
-        .header-buttons { display: flex; flex-wrap: wrap; gap: 15px; }
+        .header-buttons { display: flex; flex-wrap: wrap; gap: 15px; position: relative; }
         .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
         
         .btn-primary { 
@@ -216,7 +215,7 @@
             object-fit: contain;
         }
 
-        /* Hero Image (Right Side Hexagon) */
+        /* Hero Image */
         .hero-image {
             flex: 1;
             display: flex;
@@ -262,7 +261,7 @@
         .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; font-weight: 700; text-shadow: 0 4px 10px rgba(0,0,0,0.8); }
         .section-title span { color: #00f6ff; }
 
-        /* Experience Timeline - Smoked Glass Effect */
+        /* Experience Timeline */
         .glass-card {
             background: linear-gradient(135deg, rgba(10, 15, 25, 0.6) 0%, rgba(10, 15, 25, 0.3) 100%);
             backdrop-filter: blur(25px); 
@@ -300,7 +299,7 @@
         .inner-role span { font-size: 0.85em; color: #94a3b8; font-style: italic; }
         .inner-role p { font-size: 0.95em; color: #cbd5e1; margin-top: 8px; }
 
-        /* Skills Grid - Smoked Tags */
+        /* Skills Grid */
         .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
         .skill-tag { 
             background: rgba(10, 15, 25, 0.6);
@@ -317,8 +316,8 @@
         }
         .skill-tag:hover { border-color: #00f6ff; background: rgba(0, 246, 255, 0.15); transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0, 246, 255, 0.3); }
 
-        /* Projects Grid - Smoked Glass Cards */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        /* Projects Grid */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .project-card { 
             padding: 30px; transition: 0.4s; position: relative; overflow: hidden; 
             background: linear-gradient(135deg, rgba(10, 15, 25, 0.6) 0%, rgba(10, 15, 25, 0.3) 100%);
@@ -350,26 +349,12 @@
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); 
         }
 
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            #home { flex-direction: column-reverse; text-align: center; padding-top: 140px; justify-content: center; gap: 50px; }
-            .hero-image { justify-content: center; padding-right: 0; }
-            .hex-wrapper { width: 300px; height: 340px; }
-            
-            body::before, body::after { width: 400px; height: 400px; filter: blur(90px); }
-            
-            nav { flex-direction: column; padding: 15px; gap: 15px; }
-            nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
-        }
-
-        /* ==========================================
-           CONTACT FORM STYLES (NO SMS)
-           ========================================== */
+        /* Contact Dropdown Styles */
         .contact-dropdown-menu {
             display: none;
             position: absolute;
             top: 100%;
-            left: 0; /* Align perfectly with left side of buttons */
+            left: 0;
             margin-top: 15px;
             background: rgba(10, 15, 25, 0.95);
             backdrop-filter: blur(20px);
@@ -381,61 +366,76 @@
             z-index: 10;
         }
 
-        .contact-dropdown-menu h4 {
-            color: #00f6ff;
-            margin-bottom: 20px;
-            font-size: 1.2em;
-            text-align: center;
+        .contact-dropdown-menu h4 { color: #00f6ff; margin-bottom: 20px; font-size: 1.2em; text-align: center; }
+        
+        .contact-form button { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .contact-form button.submit-btn { background: #00f6ff; color: #1a1d24; border: none; }
+        .contact-form button.submit-btn:hover { box-shadow: 0 0 15px rgba(0, 246, 255, 0.5); transform: translateY(-2px); }
+        .contact-form button.back-btn { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #cbd5e1; }
+        .contact-form button.back-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.15); color: #fff; border-radius: 8px; outline: none; font-family: inherit; transition: border-color 0.3s; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: #00f6ff; background: rgba(0,0,0,0.8); }
+
+        /* ==========================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================== */
+           
+        /* Tablet & Small Desktops */
+        @media (max-width: 900px) {
+            #home { flex-direction: column-reverse; text-align: center; padding-top: 160px; justify-content: center; gap: 50px; }
+            .hero-image { justify-content: center; padding-right: 0; width: 100%; }
+            .hex-wrapper { width: 300px; height: 340px; }
+            
+            body::before, body::after { width: 400px; height: 400px; filter: blur(90px); }
+            
+            nav { flex-direction: column; padding: 15px; gap: 15px; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
+            
+            .header-buttons { justify-content: center; }
         }
 
-        .contact-form button {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+        /* Mobile Phones */
+        @media (max-width: 600px) {
+            /* Typography Scaling */
+            .hero-content h1 { font-size: 2.4em; }
+            .hero-content h2 { font-size: 1.4em; }
+            .hero-content h3 { font-size: 1.2em; }
+            .hero-text-box p { font-size: 1em; }
+            .section-title { font-size: 2em; margin-bottom: 30px; }
+            
+            /* Spacing Adjustments */
+            section:not(#home) { padding: 80px 5% 40px; }
+            #home { padding-top: 180px; padding-bottom: 40px; }
+            
+            /* Navbar & Logo */
+            nav { padding: 15px 5%; }
+            nav .logo { font-size: 1.4em; }
+            nav ul { gap: 8px; }
+            nav ul li a { padding: 6px 12px; font-size: 0.9em; }
 
-        .contact-form button.submit-btn {
-            background: #00f6ff;
-            color: #1a1d24;
-            border: none;
-        }
-
-        .contact-form button.submit-btn:hover {
-            box-shadow: 0 0 15px rgba(0, 246, 255, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .contact-form button.back-btn {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.2);
-            color: #cbd5e1;
-        }
-
-        .contact-form button.back-btn:hover {
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            background: rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.15);
-            color: #fff;
-            border-radius: 8px;
-            outline: none;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: #00f6ff;
-            background: rgba(0,0,0,0.8);
+            /* Hexagon Image Shrink */
+            .hex-wrapper { width: 230px; height: 260px; }
+            
+            /* Timeline adjustments to prevent overlapping */
+            .glass-card { padding: 25px 15px; }
+            .timeline-item { flex-direction: column; gap: 15px; align-items: flex-start; }
+            .company-logo { width: 50px; height: 50px; font-size: 1em; }
+            .inner-role { margin-left: 5px; padding-left: 15px; }
+            .exp-details h3 { font-size: 1.2em; }
+            
+            /* Dropdown Form Centering on Mobile */
+            .contact-dropdown-menu {
+                width: 90vw;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            /* Buttons */
+            .btn { width: 100%; max-width: 300px; }
+            
+            /* Project Grid */
+            .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -466,7 +466,7 @@
             });
         });
 
-        // Logic to highlight the active menu item based on scroll position
+        // Highlight the active menu item based on scroll position
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav ul li a');
 
@@ -477,7 +477,6 @@
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
                 
-                // Buffer of 100px so it highlights slightly before you hit the exact top
                 if (pageYOffset >= (sectionTop - 100)) {
                     current = section.getAttribute('id');
                 }
@@ -491,9 +490,7 @@
             });
         });
 
-        // ==========================================
-        // EMAIL FORM LOGIC (Phone number removed)
-        // ==========================================
+        // Email Form Logic
         function toggleEmailForm() {
             const formContainer = document.getElementById('contact-dropdown');
             if (formContainer.style.display === 'block') {
@@ -511,12 +508,11 @@
             const email = document.getElementById('sender-email').value;
             const msg = document.getElementById('email-msg').value;
             
-            // Apna email yahan daalein (Jahan par message aayega)
             const myEmail = "erlakhwindersgh@gmail.com"; 
 
             if(email && msg) {
                 window.location.href = `mailto:${myEmail}?subject=Portfolio Contact from ${email}&body=${encodeURIComponent(msg)}`;
-                closeEmailForm(); // Submit ke baad menu band kar dega
+                closeEmailForm(); 
             } else {
                 alert("Please fill both Email and Message fields.");
             }
@@ -543,39 +539,37 @@
             </div>
             
             <!-- Button Container Start -->
-            <div class="header-buttons" style="margin-top: 30px; position: relative;">
+            <div class="header-buttons" style="margin-top: 30px;">
 
-    <!-- 1. LinkedIn Button -->
-    <a href="https://www.linkedin.com/in/lakhwindersingh22" target="_blank" class="btn btn-linkedin contact-btn">
-        <img src="linkedin.png" alt="LinkedIn" class="contact-icon">
-        <span>LinkedIn</span>
-    </a>
+                <!-- 1. LinkedIn Button -->
+                <a href="https://www.linkedin.com/in/lakhwindersingh22" target="_blank" class="btn btn-linkedin contact-btn">
+                    <img src="linkedin.png" alt="LinkedIn" class="contact-icon" onerror="this.style.display='none'">
+                    <span>LinkedIn</span>
+                </a>
 
-    <!-- 2. Contact Me Button (Sirf Email wala Dropdown Kholega) -->
-    <a href="javascript:void(0)" onclick="toggleEmailForm()" class="btn btn-primary contact-btn">
-        <img src="email.png" alt="Email Icon" class="contact-icon">
-        <span>Contact Me</span>
-    </a>
+                <!-- 2. Contact Me Button -->
+                <a href="javascript:void(0)" onclick="toggleEmailForm()" class="btn btn-primary contact-btn">
+                    <img src="email.png" alt="Email Icon" class="contact-icon" onerror="this.style.display='none'">
+                    <span>Contact Me</span>
+                </a>
 
-    <!-- 3. Python Certificate Button -->
-    <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" 
-       target="_blank" 
-       class="btn btn-outline">
-        🏆 Python Certificate
-    </a>
+                <!-- 3. Python Certificate Button -->
+                <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" target="_blank" class="btn btn-outline">
+                    🏆 Python Certificate
+                </a>
 
-    <!-- Sirf Email Form ka Dropdown -->
-    <div id="contact-dropdown" class="contact-dropdown-menu">
-        <div class="contact-form" id="email-form">
-            <h4>Send me an Email</h4>
-            <input type="email" id="sender-email" placeholder="Your Email Address" required>
-            <textarea id="email-msg" placeholder="Write your message here..." rows="4" required></textarea>
-            <button class="submit-btn" onclick="sendEmail()">Submit Email</button>
-            <button class="back-btn" onclick="closeEmailForm()">Close</button>
-        </div>
-    </div>
+                <!-- Email Form Dropdown -->
+                <div id="contact-dropdown" class="contact-dropdown-menu">
+                    <div class="contact-form" id="email-form">
+                        <h4>Send me an Email</h4>
+                        <input type="email" id="sender-email" placeholder="Your Email Address" required>
+                        <textarea id="email-msg" placeholder="Write your message here..." rows="4" required></textarea>
+                        <button class="submit-btn" onclick="sendEmail()">Submit Email</button>
+                        <button class="back-btn" onclick="closeEmailForm()">Close</button>
+                    </div>
+                </div>
 
-</div>
+            </div>
             <!-- Button Container End -->
 
         </div>
