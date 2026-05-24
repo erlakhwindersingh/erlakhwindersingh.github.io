@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Er. Lakhwinder Singh - Portfolio</title>
     <style>
+        /* ==========================================
+           CUSTOM FONTS
+           ========================================== */
+        @font-face {
+            font-family: 'Poppins-Regular';
+            src: url('Poppins-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Poppins-SemiBold';
+            src: url('Poppins-SemiBold.ttf') format('truetype');
+        }
+
         /* CSS keyframes for smooth hexagon animation */
         @keyframes slowShake {
             0% { transform: rotate(0deg); }
@@ -38,9 +51,14 @@
         /* General Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        /* Headings Font Application */
+        h1, h2, h3, h4, h5, h6, .logo {
+            font-family: 'Poppins-SemiBold', sans-serif;
+        }
+
         /* Base Body */
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Poppins-Regular', sans-serif;
             background-color: #080c13; /* Deep base to maintain text contrast */
             
             /* Lighter vibrant undertones */
