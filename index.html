@@ -15,47 +15,69 @@
             100% { transform: rotate(0deg); }
         }
 
-        /* CSS keyframes for Multiple Gradient Background */
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Keyframes for Ultra-Premium Floating Background Orbs */
+        @keyframes floatOrb1 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40vw, 30vh) scale(1.3); }
+            100% { transform: translate(10vw, 60vh) scale(0.9); }
+        }
+
+        @keyframes floatOrb2 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-40vw, -30vh) scale(1.2); }
+            100% { transform: translate(-10vw, -70vh) scale(1.4); }
         }
 
         /* General Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Animated Gradient Background */
+        /* Base Body */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #1a1d24; 
-            
-            /* Background colors adjusted to give the glass beautiful tones to refract */
-            background: linear-gradient(
-                -45deg, 
-                #1a1d24 0%, 
-                #0b4551 25%, /* Vibrant Cyan undertone */
-                #1a1d24 50%, 
-                #2a3240 75%, /* Slate Grey undertone */
-                #1a1d24 100%
-            );
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            
+            background-color: #0d1015; /* Pure dark matte base to make orbs pop */
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+            z-index: 0;
+        }
+
+        /* ==========================================
+           ULTRA-PREMIUM BACKGROUND ORBS (MESH EFFECT)
+           ========================================== */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(140px); /* Massive blur for smooth gradient */
+            z-index: -1;
+            pointer-events: none; /* User can click through them */
+            opacity: 0.6;
+        }
+
+        body::before {
+            background: #00f6ff; /* Your signature Cyan */
+            top: -10%;
+            left: -10%;
+            animation: floatOrb1 20s infinite alternate ease-in-out;
+        }
+
+        body::after {
+            background: #1a5fff; /* Deep Royal Premium Blue */
+            bottom: -10%;
+            right: -10%;
+            animation: floatOrb2 25s infinite alternate-reverse ease-in-out;
         }
 
         /* Navigation Bar - Ultra Premium Glass */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            /* Diagonal shine on the glass itself */
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
-            /* Saturate makes the background colors pop through the blur */
             backdrop-filter: blur(25px) saturate(150%); 
             -webkit-backdrop-filter: blur(25px) saturate(150%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Bright bottom edge */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             padding: 25px 10%; 
             display: flex; justify-content: space-between; align-items: center;
@@ -161,11 +183,10 @@
         /* Experience Timeline - Max Glass Effect */
         .glass-card {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(30px) saturate(180%); /* Saturation makes it look like real glass */
+            backdrop-filter: blur(30px) saturate(180%); 
             -webkit-backdrop-filter: blur(30px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.05);
             
-            /* Strong edge lighting */
             border-top: 1px solid rgba(255, 255, 255, 0.35); 
             border-left: 1px solid rgba(255, 255, 255, 0.35);
             border-radius: 16px;
@@ -210,7 +231,7 @@
             backdrop-filter: blur(20px) saturate(150%); 
             -webkit-backdrop-filter: blur(20px) saturate(150%);
             border: 1px solid rgba(255, 255, 255, 0.05); 
-            border-top: 1px solid rgba(255, 255, 255, 0.3); /* Glass Edge */
+            border-top: 1px solid rgba(255, 255, 255, 0.3); 
             border-left: 1px solid rgba(255, 255, 255, 0.3);
             padding: 10px 22px; 
             border-radius: 30px; 
@@ -227,7 +248,6 @@
         .project-card { 
             padding: 30px; transition: 0.4s; position: relative; overflow: hidden; 
             
-            /* Same max-glass effect */
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
             backdrop-filter: blur(25px) saturate(160%);
             -webkit-backdrop-filter: blur(25px) saturate(160%);
@@ -265,6 +285,10 @@
             #home { flex-direction: column-reverse; text-align: center; padding-top: 140px; justify-content: center; gap: 50px; }
             .hero-image { justify-content: center; padding-right: 0; }
             .hex-wrapper { width: 300px; height: 340px; }
+            
+            /* Reduced orb sizes for mobile to prevent overflow/lag */
+            body::before, body::after { width: 400px; height: 400px; }
+            
             nav { flex-direction: column; padding: 15px; gap: 15px; }
             nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
         }
