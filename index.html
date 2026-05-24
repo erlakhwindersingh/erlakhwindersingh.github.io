@@ -28,13 +28,33 @@
             100% { transform: translate(-10vw, -70vh) scale(1.4); }
         }
 
+        /* CSS keyframes for Base Gradient Background */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         /* General Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         /* Base Body */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0d1015; /* Pure dark matte base to make orbs pop */
+            background-color: #0d1015; /* Pure dark matte base */
+            
+            /* Base moving gradient with lighter, non-indigo tones */
+            background: linear-gradient(
+                -45deg, 
+                #1a1d24 0%, 
+                #0c3b45 25%, /* Fresh Cyan undertone */
+                #1a1d24 50%, 
+                #1b2633 75%, /* Fresh Slate tone */
+                #1a1d24 100%
+            );
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
@@ -54,7 +74,7 @@
             filter: blur(140px); /* Massive blur for smooth gradient */
             z-index: -1;
             pointer-events: none; /* User can click through them */
-            opacity: 0.6;
+            opacity: 0.65;
         }
 
         body::before {
@@ -65,7 +85,8 @@
         }
 
         body::after {
-            background: #1a5fff; /* Deep Royal Premium Blue */
+            /* Changed from dark indigo to Bright Sky/Ocean Blue */
+            background: #0088ff; 
             bottom: -10%;
             right: -10%;
             animation: floatOrb2 25s infinite alternate-reverse ease-in-out;
