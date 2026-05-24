@@ -15,7 +15,20 @@
             100% { transform: rotate(0deg); }
         }
 
-        /* CSS keyframes for Vibrant Background Animation */
+        /* Keyframes for Ultra-Premium Floating Background Orbs */
+        @keyframes floatOrb1 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40vw, 30vh) scale(1.3); }
+            100% { transform: translate(10vw, 60vh) scale(0.9); }
+        }
+
+        @keyframes floatOrb2 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-40vw, -30vh) scale(1.2); }
+            100% { transform: translate(-10vw, -70vh) scale(1.4); }
+        }
+
+        /* CSS keyframes for Base Gradient Background */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -25,50 +38,77 @@
         /* General Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* ==========================================
-           VIBRANT ANIMATED BACKGROUND
-           ========================================== */
+        /* Base Body */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #080c13; /* Deep base to maintain text contrast */
             
-            /* Highly vibrant gradient shifting between Deep Slate, Bright Cyan, and Vivid Blue */
+            /* Lighter vibrant undertones */
             background: linear-gradient(
                 -45deg, 
-                #131a2a, /* Deep Slate for base contrast */
-                #006b85, /* Vibrant Ocean Cyan */
-                #004fb3, /* Bright Royal Blue */
-                #131a2a  /* Back to Deep Slate */
+                #080c13 0%, 
+                #0f3b4d 25%, /* Vibrant Teal */
+                #080c13 50%, 
+                #144a66 75%, /* Vibrant Ocean Blue */
+                #080c13 100%
             );
-            background-size: 300% 300%;
-            animation: gradientBG 12s ease infinite;
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
 
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; /* Makes text super crisp */
+            position: relative;
+            z-index: 0;
         }
 
         /* ==========================================
-           PURE WHITE FROSTED GLASS (NO DARK TINTS)
+           BRIGHT BACKGROUND ORBS (Tuned for readability)
            ========================================== */
-        
-        /* Navigation Bar */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            width: 650px;
+            height: 650px;
+            border-radius: 50%;
+            filter: blur(140px); 
+            z-index: -1;
+            pointer-events: none; 
+            opacity: 0.45; /* Tuned down from 0.85 so it doesn't blind the white text */
+        }
+
+        body::before {
+            background: #00f6ff; /* Bright Cyan */
+            top: -10%;
+            left: -10%;
+            animation: floatOrb1 20s infinite alternate ease-in-out;
+        }
+
+        body::after {
+            background: #00aaff; /* Bright Sky Blue */
+            bottom: -10%;
+            right: -10%;
+            animation: floatOrb2 25s infinite alternate-reverse ease-in-out;
+        }
+
+        /* Navigation Bar - Smoked Glass (Ensures text is 100% visible) */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.05); /* Pure frosty white, NO black */
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Bright edge */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            /* Dark tinted glass so white text pops clearly */
+            background: rgba(10, 15, 25, 0.65); 
+            backdrop-filter: blur(25px) saturate(120%); 
+            -webkit-backdrop-filter: blur(25px) saturate(120%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             padding: 25px 10%; 
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; 
         }
-        nav .logo { font-size: 1.8em; font-weight: 800; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        nav .logo { font-size: 1.8em; font-weight: 800; color: #ffffff; }
         nav .logo span { color: #00f6ff; }
         
         nav ul { list-style: none; display: flex; gap: 30px; }
-        nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1em; transition: 0.3s; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+        nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1em; transition: 0.3s; }
         nav ul li a:hover { color: #00f6ff; }
 
         /* Hero Section */
@@ -87,34 +127,41 @@
             flex: 1;
             max-width: 600px;
         }
-        
-        /* Sharp, clean text shadows ensure white text is perfectly readable on bright background animations */
-        .hero-content h3 { font-size: 1.5em; font-weight: 500; margin-bottom: 5px; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
-        .hero-content h1 { font-size: 3.5em; font-weight: 800; margin-bottom: 5px; line-height: 1.1; text-shadow: 0 3px 10px rgba(0,0,0,0.7); }
-        .hero-content h2 { font-size: 1.8em; font-weight: 600; margin-bottom: 20px; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
+        /* Added heavy text-shadow to headings so they are readable even if an orb passes directly behind them */
+        .hero-content h3 { font-size: 1.5em; font-weight: 500; margin-bottom: 5px; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
+        .hero-content h1 { font-size: 3.5em; font-weight: 800; margin-bottom: 5px; line-height: 1.1; text-shadow: 0 4px 20px rgba(0,0,0,0.9); }
+        .hero-content h2 { font-size: 1.8em; font-weight: 600; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
         .hero-content h2 span { color: #00f6ff; }
         
-        .hero-content p { color: #f1f5f9; font-size: 1.1em; line-height: 1.7; margin-bottom: 30px; text-shadow: 0 1px 4px rgba(0,0,0,0.6); }
-        .highlight-text { color: #00f6ff !important; font-weight: 600; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
+        /* Wrapped the text box in a subtle glass container to protect the paragraphs from background glare */
+        .hero-text-box {
+            background: rgba(10, 15, 25, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .hero-text-box p { color: #cbd5e1; font-size: 1.1em; line-height: 1.7; margin-bottom: 15px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
+        .hero-text-box p:last-child { margin-bottom: 0; }
 
         /* Glowing Buttons */
-        .header-buttons { display: flex; gap: 15px; margin-top: 30px; }
+        .header-buttons { display: flex; gap: 15px; }
         .btn { display: inline-block; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
         .btn-primary { 
-            background: #00f6ff; color: #131a2a; 
-            box-shadow: 0 0 20px rgba(0, 246, 255, 0.4); 
+            background: #00f6ff; color: #1a1d24; 
+            box-shadow: 0 0 20px rgba(0, 246, 255, 0.5); 
         }
-        .btn-primary:hover { box-shadow: 0 0 35px rgba(0, 246, 255, 0.7); transform: translateY(-3px); }
+        .btn-primary:hover { box-shadow: 0 0 35px rgba(0, 246, 255, 0.8); transform: translateY(-3px); }
         
         .btn-outline { 
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 15, 25, 0.6);
+            backdrop-filter: blur(15px);
             border: 2px solid #00f6ff; 
             color: #00f6ff; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
-        .btn-outline:hover { background: rgba(0, 246, 255, 0.15); transform: translateY(-3px); box-shadow: 0 0 20px rgba(0, 246, 255, 0.3); }
+        .btn-outline:hover { background: rgba(0, 246, 255, 0.15); transform: translateY(-3px); box-shadow: 0 0 20px rgba(0, 246, 255, 0.4); }
 
         /* Hero Image (Right Side Hexagon) */
         .hero-image {
@@ -154,113 +201,103 @@
             object-fit: cover;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             z-index: 3;
-            background-color: #131a2a; 
+            background-color: #1a1d24; 
         }
 
         /* Generic Section Styling */
         section:not(#home) { padding: 100px 5% 60px; max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
-        .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; font-weight: 700; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
+        .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; font-weight: 700; text-shadow: 0 4px 10px rgba(0,0,0,0.8); }
         .section-title span { color: #00f6ff; }
 
-        /* ==========================================
-           GLASS CARDS (Pure Frost, Light & Readable)
-           ========================================== */
+        /* Experience Timeline - Smoked Glass Effect */
         .glass-card {
-            background: rgba(255, 255, 255, 0.05); /* Very light frost */
+            /* Dark gradient base provides contrast for text */
+            background: linear-gradient(135deg, rgba(10, 15, 25, 0.6) 0%, rgba(10, 15, 25, 0.3) 100%);
             backdrop-filter: blur(25px); 
             -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             
-            /* Sharp white edge highlights for 3D realism */
-            border-top: 1px solid rgba(255, 255, 255, 0.25); 
-            border-left: 1px solid rgba(255, 255, 255, 0.25);
+            border-top: 1px solid rgba(255, 255, 255, 0.15); 
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); 
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6); 
             padding: 40px 30px;
         }
 
         .timeline-container { margin-top: 20px; }
-        .timeline-item { display: flex; gap: 25px; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.08); transition: 0.3s; }
+        .timeline-item { display: flex; gap: 25px; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
         .timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
         
         .company-logo { 
             width: 60px; height: 60px; 
-            background: rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(10px);
+            background: rgba(10, 15, 25, 0.8); 
             border-radius: 12px; 
             display: flex; align-items: center; justify-content: center; 
             font-size: 1.2em; font-weight: 800; color: #00f6ff;
             flex-shrink: 0; 
             border: 1px solid rgba(0, 246, 255, 0.3);
-            border-top: 1px solid rgba(255, 255, 255, 0.4);
-            border-left: 1px solid rgba(255, 255, 255, 0.4);
-            text-align: center; line-height: 1.2; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-align: center; line-height: 1.2; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .exp-details h3 { font-size: 1.4em; margin: 0 0 5px; color: #00f6ff; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
-        .exp-details h4 { font-size: 1.05em; color: #f8fafc; margin: 0 0 5px; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
-        .exp-details .meta { font-size: 0.9em; color: #94a3b8; margin-bottom: 15px; display: inline-block; background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 20px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.3); }
+        .exp-details h3 { font-size: 1.4em; margin: 0 0 5px; color: #00f6ff; }
+        .exp-details h4 { font-size: 1.05em; color: #f8fafc; margin: 0 0 5px; }
+        .exp-details .meta { font-size: 0.9em; color: #94a3b8; margin-bottom: 15px; display: inline-block; background: rgba(0,0,0,0.6); padding: 4px 10px; border-radius: 20px; }
         
-        .inner-role { margin-left: 15px; border-left: 2px solid rgba(0, 246, 255, 0.6); padding-left: 20px; margin-bottom: 20px; position: relative; }
+        .inner-role { margin-left: 15px; border-left: 2px solid rgba(0, 246, 255, 0.5); padding-left: 20px; margin-bottom: 20px; position: relative; }
         .inner-role::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; background: #00f6ff; border-radius: 50%; box-shadow: 0 0 10px #00f6ff; }
-        .inner-role h5 { font-size: 1.1em; color: #f8fafc; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
-        .inner-role span { font-size: 0.85em; color: #cbd5e1; font-style: italic; }
-        .inner-role p { font-size: 0.95em; color: #e2e8f0; margin-top: 8px; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+        .inner-role h5 { font-size: 1.1em; color: #f8fafc; }
+        .inner-role span { font-size: 0.85em; color: #94a3b8; font-style: italic; }
+        .inner-role p { font-size: 0.95em; color: #cbd5e1; margin-top: 8px; }
 
-        /* Skills Grid - Pure Frost Tags */
+        /* Skills Grid - Smoked Tags */
         .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
         .skill-tag { 
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(10, 15, 25, 0.6);
             backdrop-filter: blur(15px); 
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-top: 1px solid rgba(255, 255, 255, 0.25); 
-            border-left: 1px solid rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-top: 1px solid rgba(255, 255, 255, 0.15); 
             padding: 10px 22px; 
             border-radius: 30px; 
             font-size: 0.95em; 
             transition: 0.3s; 
             color: #ffffff; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         }
-        .skill-tag:hover { border-color: #00f6ff; background: rgba(0, 246, 255, 0.15); transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 246, 255, 0.3); }
+        .skill-tag:hover { border-color: #00f6ff; background: rgba(0, 246, 255, 0.15); transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0, 246, 255, 0.3); }
 
-        /* Projects Grid - Pure Frost Cards */
+        /* Projects Grid - Smoked Glass Cards */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .project-card { 
             padding: 30px; transition: 0.4s; position: relative; overflow: hidden; 
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1); 
+            background: linear-gradient(135deg, rgba(10, 15, 25, 0.6) 0%, rgba(10, 15, 25, 0.3) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.05); 
             
-            border-top: 1px solid rgba(255, 255, 255, 0.25);
-            border-left: 1px solid rgba(255, 255, 255, 0.25);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px; 
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         .project-card:hover { 
             border-color: rgba(0, 246, 255, 0.5); 
             transform: translateY(-8px); 
-            box-shadow: 0 12px 35px rgba(0, 246, 255, 0.2); 
-            background: rgba(255, 255, 255, 0.08); 
+            box-shadow: 0 15px 40px rgba(0, 246, 255, 0.2); 
+            background: linear-gradient(135deg, rgba(15, 25, 40, 0.7) 0%, rgba(10, 15, 25, 0.4) 100%); 
         }
-        .project-card h3 { font-size: 1.3em; margin: 0 0 12px; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.6); }
-        .project-card p { font-size: 0.95em; color: #e2e8f0; margin-bottom: 20px; line-height: 1.6; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+        .project-card h3 { font-size: 1.3em; margin: 0 0 12px; color: #fff; }
+        .project-card p { font-size: 0.95em; color: #cbd5e1; margin-bottom: 20px; line-height: 1.6; }
         
         .tech-stack { 
             font-size: 0.85em; 
             color: #00f6ff; 
-            background: rgba(0, 0, 0, 0.2); 
+            background: rgba(0, 0, 0, 0.5); 
             padding: 6px 12px; 
             border-radius: 20px; 
             display: inline-block; 
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3); 
-            text-shadow: none;
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); 
         }
 
         /* Responsive Design */
@@ -268,6 +305,9 @@
             #home { flex-direction: column-reverse; text-align: center; padding-top: 140px; justify-content: center; gap: 50px; }
             .hero-image { justify-content: center; padding-right: 0; }
             .hex-wrapper { width: 300px; height: 340px; }
+            
+            body::before, body::after { width: 400px; height: 400px; filter: blur(90px); }
+            
             nav { flex-direction: column; padding: 15px; gap: 15px; }
             nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
         }
@@ -306,18 +346,20 @@
             <h1>Lakhwinder Singh</h1>
             <h2>And I'm a <span>Sr. Software Engineer</span></h2>
             
-            <p class="highlight-text" style="font-size: 1.2em; margin-bottom: 25px;">Team Lead – Mobile Apps | Android & Flutter Development</p>
-            
-            <h4 style="margin-top: 15px; color: #00f6ff; font-size: 1.1em; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Core Skills</h4>
-            <p>Flutter • Android • Python • OOP • Mobile Architecture • REST API Integration • Firebase • State Management • UI/UX Optimization • Performance Optimization • Clean Architecture</p>
-            
-            <h4 style="margin-top: 15px; color: #00f6ff; font-size: 1.1em; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Mobile Application Development</h4>
-            <p>Experienced Mobile Application Developer specializing in building high-performance, scalable, and user-centric digital solutions. Skilled in Flutter, Android SDK, and modern mobile architectures with strong expertise in complex API integrations and clean code practices.</p>
+            <div class="hero-text-box">
+                <p class="highlight-text" style="color: #00f6ff; font-weight: 600;">Team Lead – Mobile Apps | Android & Flutter Development</p>
+                
+                <h4 style="margin-top: 15px; color: #ffffff;">Core Skills</h4>
+                <p>Flutter • Android • Python • OOP • Mobile Architecture • REST API Integration • Firebase • State Management • UI/UX Optimization • Performance Optimization • Clean Architecture</p>
+                
+                <h4 style="margin-top: 15px; color: #ffffff;">Mobile Application Development</h4>
+                <p>Experienced Mobile Application Developer specializing in building high-performance, scalable, and user-centric digital solutions. Skilled in Flutter, Android SDK, and modern mobile architectures with strong expertise in complex API integrations and clean code practices.</p>
 
-            <h4 style="margin-top: 15px; color: #00f6ff; font-size: 1.1em; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Python Development</h4>
-            <p>Proficient in Python development with experience in automation, backend logic, API handling, and scalable software solutions. Strong understanding of object-oriented programming (OOP) and efficient problem-solving approaches.</p>
+                <h4 style="margin-top: 15px; color: #ffffff;">Python Development</h4>
+                <p>Proficient in Python development with experience in automation, backend logic, API handling, and scalable software solutions. Strong understanding of object-oriented programming (OOP) and efficient problem-solving approaches.</p>
+            </div>
             
-            <div class="header-buttons">
+            <div class="header-buttons" style="margin-top: 30px;">
                 <a href="mailto:your-email@example.com" class="btn btn-primary">✉️ Contact Me</a>
                 <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" target="_blank" class="btn btn-outline">🏆 Python Certificate</a>
             </div>
