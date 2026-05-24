@@ -138,12 +138,12 @@
             border-radius: 30px; /* Fully rounded edges */
         }
         
-        /* UPDATED: Active state with background and white text */
+        /* UPDATED: Active state with background and dark text (#1a1d24) */
         nav ul li a:hover, nav ul li a.active { 
             background: #00f6ff; 
-            color: #ffffff; 
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Shadow added so white text is readable on bright cyan */
-            box-shadow: 0 4px 15px rgba(0, 246, 255, 0.3); /* Subtle glow around the button */
+            color: #1a1d24; /* Dark color for text as requested */
+            text-shadow: none; /* Removed shadow for dark text */
+            box-shadow: 0 4px 15px rgba(0, 246, 255, 0.4); /* Subtle glow around the button */
         }
 
         /* Hero Section */
@@ -365,11 +365,16 @@
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
+                
+                // Instantly update active class on click for better UI response
+                document.querySelectorAll('nav ul li a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+
                 const targetId = this.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
                 
                 window.scrollTo({
-                    top: targetSection.offsetTop - 50,
+                    top: targetSection.offsetTop - 80, // adjusted offset to accommodate nav height
                     behavior: 'smooth'
                 });
             });
@@ -384,13 +389,17 @@
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 
-                // Buffer of 100px so it highlights slightly before you hit the exact top
-                if (pageYOffset >= (sectionTop - 100)) {
+                // Increased buffer so it triggers perfectly when you reach the section
+                if (window.scrollY >= (sectionTop - 150)) {
                     current = section.getAttribute('id');
                 }
             });
+
+            // Extra check: if scrolled to the absolute bottom of the page, force select the last item (Projects)
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                current = sections[sections.length - 1].getAttribute('id');
+            }
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
