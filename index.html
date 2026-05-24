@@ -346,6 +346,86 @@
             nav { flex-direction: column; padding: 15px; gap: 15px; }
             nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
         }
+
+        /* ==========================================
+           CONTACT DROPDOWN & FORM STYLES
+           ========================================== */
+        .contact-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 15px;
+            background: rgba(10, 15, 25, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 246, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            width: 320px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .contact-dropdown-menu h4 {
+            color: #00f6ff;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .contact-options button, .contact-form button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            background: rgba(0, 246, 255, 0.1);
+            color: #00f6ff;
+            border: 1px solid #00f6ff;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-options button:hover {
+            background: #00f6ff;
+            color: #1a1d24;
+            box-shadow: 0 0 15px rgba(0, 246, 255, 0.4);
+        }
+
+        .contact-form button.submit-btn {
+            background: #00f6ff;
+            color: #1a1d24;
+        }
+
+        .contact-form button.submit-btn:hover {
+            box-shadow: 0 0 15px rgba(0, 246, 255, 0.4);
+        }
+
+        .contact-form button.back-btn {
+            background: transparent;
+            border-color: rgba(255,255,255,0.2);
+            color: #cbd5e1;
+        }
+
+        .contact-form button.back-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            border-radius: 8px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #00f6ff;
+        }
     </style>
 </head>
 <body>
@@ -399,6 +479,66 @@
                 }
             });
         });
+
+        // ==========================================
+        // CONTACT DROPDOWN LOGIC
+        // ==========================================
+        function toggleContactDropdown() {
+            const dropdown = document.getElementById('contact-dropdown');
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+                backToOptions(); // Har baar open hone pe options dikhaye
+            }
+        }
+
+        function showEmailForm() {
+            document.getElementById('contact-options').style.display = 'none';
+            document.getElementById('email-form').style.display = 'block';
+            document.getElementById('sms-form').style.display = 'none';
+        }
+
+        function showSmsForm() {
+            document.getElementById('contact-options').style.display = 'none';
+            document.getElementById('email-form').style.display = 'none';
+            document.getElementById('sms-form').style.display = 'block';
+        }
+
+        function backToOptions() {
+            document.getElementById('contact-options').style.display = 'block';
+            document.getElementById('email-form').style.display = 'none';
+            document.getElementById('sms-form').style.display = 'none';
+        }
+
+        function sendEmail() {
+            const email = document.getElementById('sender-email').value;
+            const msg = document.getElementById('email-msg').value;
+            
+            // Apna email yahan daalein
+            const myEmail = "your-email@example.com"; 
+
+            if(email && msg) {
+                window.location.href = `mailto:${myEmail}?subject=Portfolio Contact from ${email}&body=${encodeURIComponent(msg)}`;
+                toggleContactDropdown();
+            } else {
+                alert("Please fill both Email and Message fields.");
+            }
+        }
+
+        function sendSms() {
+            const msg = document.getElementById('sms-msg').value;
+            
+            // Apna mobile number yahan daalein (Country code ke sath)
+            const myPhone = "+919876543210"; 
+
+            if(msg) {
+                window.location.href = `sms:${myPhone}?body=${encodeURIComponent(msg)}`;
+                toggleContactDropdown();
+            } else {
+                alert("Please write a message first.");
+            }
+        }
     </script>
 
     <section id="home">
@@ -419,35 +559,63 @@
                 <h4 style="margin-top: 15px; color: #ffffff;">Python Development</h4>
                 <p>Proficient in Python development with experience in automation, backend logic, API handling, and scalable software solutions. Strong understanding of object-oriented programming (OOP) and efficient problem-solving approaches.</p>
             </div>
-<div class="header-buttons" style="margin-top: 30px;">
+            
+            <div class="header-buttons" style="margin-top: 30px; position: relative;">
 
-    <a href="mailto:your-email@example.com" class="btn btn-primary contact-btn">
-        <img src="communication.png" alt="Contact Icon" class="contact-icon">
-        <span>Contact Me</span>
-    </a>
+                <!-- Yahan maine dropdown trigger karne wala function lagaya hai -->
+                <a href="javascript:void(0)" onclick="toggleContactDropdown()" class="btn btn-primary contact-btn">
+                    <img src="communication.png" alt="Contact Icon" class="contact-icon">
+                    <span>Contact Me</span>
+                </a>
 
-    <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" 
-       target="_blank" 
-       class="btn btn-outline">
-        🏆 Python Certificate
-    </a>
+                <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" 
+                   target="_blank" 
+                   class="btn btn-outline">
+                    🏆 Python Certificate
+                </a>
 
-</div>
+                <!-- Naya Dropdown Menu Yahan Hai -->
+                <div id="contact-dropdown" class="contact-dropdown-menu">
+                    
+                    <div class="contact-options" id="contact-options">
+                        <h4>How would you like to connect?</h4>
+                        <button onclick="showEmailForm()">✉️ Send an Email</button>
+                        <button onclick="showSmsForm()">📱 Send a Mobile Message</button>
+                    </div>
 
-<style>
-.contact-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-}
+                    <div class="contact-form" id="email-form" style="display: none;">
+                        <h4>Send Email</h4>
+                        <input type="email" id="sender-email" placeholder="Your Email Address" required>
+                        <textarea id="email-msg" placeholder="Write your message here..." rows="4" required></textarea>
+                        <button class="submit-btn" onclick="sendEmail()">Submit Email</button>
+                        <button class="back-btn" onclick="backToOptions()">Back</button>
+                    </div>
 
-.contact-icon{
-    width:22px;
-    height:22px;
-    object-fit:contain;
-}
-</style>
+                    <div class="contact-form" id="sms-form" style="display: none;">
+                        <h4>Send SMS</h4>
+                        <textarea id="sms-msg" placeholder="Write your message here..." rows="4" required></textarea>
+                        <button class="submit-btn" onclick="sendSms()">Submit Message</button>
+                        <button class="back-btn" onclick="backToOptions()">Back</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <style>
+            .contact-btn{
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                gap:10px;
+            }
+
+            .contact-icon{
+                width:22px;
+                height:22px;
+                object-fit:contain;
+            }
+            </style>
         </div>
 
         <div class="hero-image">
