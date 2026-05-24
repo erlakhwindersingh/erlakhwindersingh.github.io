@@ -127,7 +127,9 @@
         
         nav ul { list-style: none; display: flex; gap: 30px; }
         nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1em; transition: 0.3s; }
-        nav ul li a:hover { color: #00f6ff; }
+        
+        /* ADDED: Active state color to match hover */
+        nav ul li a:hover, nav ul li a.active { color: #00f6ff; }
 
         /* Hero Section */
         #home {
@@ -336,7 +338,7 @@
     <nav>
         <div class="logo">Welcome to My Portfolio — <span>Hello, I’m</span></div>
         <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -344,6 +346,7 @@
     </nav>
 
     <script>
+        // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -354,6 +357,31 @@
                     top: targetSection.offsetTop - 50,
                     behavior: 'smooth'
                 });
+            });
+        });
+
+        // ADDED: Logic to highlight the active menu item based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                // If scroll position is within the section area (with a 100px buffer for the navbar)
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
             });
         });
     </script>
