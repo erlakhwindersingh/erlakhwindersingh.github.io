@@ -92,7 +92,7 @@
             filter: blur(140px); 
             z-index: -1;
             pointer-events: none; 
-            opacity: 0.45; /* Tuned down from 0.85 so it doesn't blind the white text */
+            opacity: 0.45; 
         }
 
         body::before {
@@ -125,25 +125,23 @@
         nav .logo { font-size: 1.8em; font-weight: 800; color: #ffffff; }
         nav .logo span { color: #00f6ff; }
         
-        nav ul { list-style: none; display: flex; gap: 15px; } /* Gap reduced slightly for pills */
+        nav ul { list-style: none; display: flex; gap: 15px; } 
         
-        /* UPDATED: Nav Links - Pill shape */
         nav ul li a { 
             color: #e2e8f0; 
             text-decoration: none; 
             font-weight: 500; 
             font-size: 1em; 
             transition: all 0.3s ease; 
-            padding: 8px 20px; /* Padding for the round background */
-            border-radius: 30px; /* Fully rounded edges */
+            padding: 8px 20px; 
+            border-radius: 30px; 
         }
         
-        /* UPDATED: Active state with background and white text */
         nav ul li a:hover, nav ul li a.active { 
             background: #00f6ff; 
             color: #ffffff; 
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Shadow added so white text is readable on bright cyan */
-            box-shadow: 0 4px 15px rgba(0, 246, 255, 0.3); /* Subtle glow around the button */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
+            box-shadow: 0 4px 15px rgba(0, 246, 255, 0.3); 
         }
 
         /* Hero Section */
@@ -157,18 +155,16 @@
             margin: 0 auto;
         }
 
-        /* Hero Content (Left Side) */
         .hero-content {
             flex: 1;
             max-width: 600px;
         }
-        /* Added heavy text-shadow to headings so they are readable even if an orb passes directly behind them */
+        
         .hero-content h3 { font-size: 1.5em; font-weight: 500; margin-bottom: 5px; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
         .hero-content h1 { font-size: 3.5em; font-weight: 800; margin-bottom: 5px; line-height: 1.1; text-shadow: 0 4px 20px rgba(0,0,0,0.9); }
         .hero-content h2 { font-size: 1.8em; font-weight: 600; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
         .hero-content h2 span { color: #00f6ff; }
         
-        /* Wrapped the text box in a subtle glass container to protect the paragraphs from background glare */
         .hero-text-box {
             background: rgba(10, 15, 25, 0.4);
             backdrop-filter: blur(10px);
@@ -181,8 +177,9 @@
         .hero-text-box p:last-child { margin-bottom: 0; }
 
         /* Glowing Buttons */
-        .header-buttons { display: flex; gap: 15px; }
-        .btn { display: inline-block; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .header-buttons { display: flex; flex-wrap: wrap; gap: 15px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        
         .btn-primary { 
             background: #00f6ff; color: #1a1d24; 
             box-shadow: 0 0 20px rgba(0, 246, 255, 0.5); 
@@ -197,6 +194,27 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         .btn-outline:hover { background: rgba(0, 246, 255, 0.15); transform: translateY(-3px); box-shadow: 0 0 20px rgba(0, 246, 255, 0.4); }
+
+        /* LinkedIn Button Styling */
+        .btn-linkedin {
+            background: rgba(10, 15, 25, 0.6);
+            backdrop-filter: blur(15px);
+            border: 2px solid #0077b5;
+            color: #0077b5;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .btn-linkedin:hover {
+            background: #0077b5;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(0, 119, 181, 0.6);
+        }
+
+        .contact-icon {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
 
         /* Hero Image (Right Side Hexagon) */
         .hero-image {
@@ -246,12 +264,10 @@
 
         /* Experience Timeline - Smoked Glass Effect */
         .glass-card {
-            /* Dark gradient base provides contrast for text */
             background: linear-gradient(135deg, rgba(10, 15, 25, 0.6) 0%, rgba(10, 15, 25, 0.3) 100%);
             backdrop-filter: blur(25px); 
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            
             border-top: 1px solid rgba(255, 255, 255, 0.15); 
             border-left: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
@@ -309,7 +325,6 @@
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.05); 
-            
             border-top: 1px solid rgba(255, 255, 255, 0.15);
             border-left: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px; 
@@ -348,83 +363,79 @@
         }
 
         /* ==========================================
-           CONTACT DROPDOWN & FORM STYLES
+           CONTACT FORM STYLES (NO SMS)
            ========================================== */
         .contact-dropdown-menu {
             display: none;
             position: absolute;
             top: 100%;
-            left: 0;
+            left: 0; /* Align perfectly with left side of buttons */
             margin-top: 15px;
-            background: rgba(10, 15, 25, 0.9);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 246, 255, 0.3);
+            background: rgba(10, 15, 25, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 246, 255, 0.4);
             border-radius: 12px;
-            padding: 20px;
+            padding: 25px;
             width: 320px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
             z-index: 10;
         }
 
         .contact-dropdown-menu h4 {
             color: #00f6ff;
-            margin-bottom: 15px;
-            font-size: 1.1em;
+            margin-bottom: 20px;
+            font-size: 1.2em;
             text-align: center;
         }
 
-        .contact-options button, .contact-form button {
+        .contact-form button {
             width: 100%;
             padding: 12px;
             margin-bottom: 10px;
-            background: rgba(0, 246, 255, 0.1);
-            color: #00f6ff;
-            border: 1px solid #00f6ff;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
         }
 
-        .contact-options button:hover {
-            background: #00f6ff;
-            color: #1a1d24;
-            box-shadow: 0 0 15px rgba(0, 246, 255, 0.4);
-        }
-
         .contact-form button.submit-btn {
             background: #00f6ff;
             color: #1a1d24;
+            border: none;
         }
 
         .contact-form button.submit-btn:hover {
-            box-shadow: 0 0 15px rgba(0, 246, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 246, 255, 0.5);
+            transform: translateY(-2px);
         }
 
         .contact-form button.back-btn {
             background: transparent;
-            border-color: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
             color: #cbd5e1;
         }
 
         .contact-form button.back-btn:hover {
             background: rgba(255,255,255,0.1);
+            color: #fff;
         }
 
         .contact-form input, .contact-form textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 15px;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.15);
             color: #fff;
             border-radius: 8px;
             outline: none;
             font-family: inherit;
+            transition: border-color 0.3s;
         }
 
         .contact-form input:focus, .contact-form textarea:focus {
             border-color: #00f6ff;
+            background: rgba(0,0,0,0.8);
         }
     </style>
 </head>
@@ -481,62 +492,33 @@
         });
 
         // ==========================================
-        // CONTACT DROPDOWN LOGIC
+        // EMAIL FORM LOGIC (Phone number removed)
         // ==========================================
-        function toggleContactDropdown() {
-            const dropdown = document.getElementById('contact-dropdown');
-            if (dropdown.style.display === 'block') {
-                dropdown.style.display = 'none';
+        function toggleEmailForm() {
+            const formContainer = document.getElementById('contact-dropdown');
+            if (formContainer.style.display === 'block') {
+                formContainer.style.display = 'none';
             } else {
-                dropdown.style.display = 'block';
-                backToOptions(); // Har baar open hone pe options dikhaye
+                formContainer.style.display = 'block';
             }
         }
 
-        function showEmailForm() {
-            document.getElementById('contact-options').style.display = 'none';
-            document.getElementById('email-form').style.display = 'block';
-            document.getElementById('sms-form').style.display = 'none';
-        }
-
-        function showSmsForm() {
-            document.getElementById('contact-options').style.display = 'none';
-            document.getElementById('email-form').style.display = 'none';
-            document.getElementById('sms-form').style.display = 'block';
-        }
-
-        function backToOptions() {
-            document.getElementById('contact-options').style.display = 'block';
-            document.getElementById('email-form').style.display = 'none';
-            document.getElementById('sms-form').style.display = 'none';
+        function closeEmailForm() {
+            document.getElementById('contact-dropdown').style.display = 'none';
         }
 
         function sendEmail() {
             const email = document.getElementById('sender-email').value;
             const msg = document.getElementById('email-msg').value;
             
-            // Apna email yahan daalein
-            const myEmail = "your-email@example.com"; 
+            // Apna email yahan daalein (Jahan par message aayega)
+            const myEmail = "contact.lakhwinder@gmail.com"; 
 
             if(email && msg) {
                 window.location.href = `mailto:${myEmail}?subject=Portfolio Contact from ${email}&body=${encodeURIComponent(msg)}`;
-                toggleContactDropdown();
+                closeEmailForm(); // Submit ke baad menu band kar dega
             } else {
                 alert("Please fill both Email and Message fields.");
-            }
-        }
-
-        function sendSms() {
-            const msg = document.getElementById('sms-msg').value;
-            
-            // Apna mobile number yahan daalein (Country code ke sath)
-            const myPhone = "+919876543210"; 
-
-            if(msg) {
-                window.location.href = `sms:${myPhone}?body=${encodeURIComponent(msg)}`;
-                toggleContactDropdown();
-            } else {
-                alert("Please write a message first.");
             }
         }
     </script>
@@ -560,62 +542,42 @@
                 <p>Proficient in Python development with experience in automation, backend logic, API handling, and scalable software solutions. Strong understanding of object-oriented programming (OOP) and efficient problem-solving approaches.</p>
             </div>
             
+            <!-- Button Container Start -->
             <div class="header-buttons" style="margin-top: 30px; position: relative;">
 
-                <!-- Yahan maine dropdown trigger karne wala function lagaya hai -->
-                <a href="javascript:void(0)" onclick="toggleContactDropdown()" class="btn btn-primary contact-btn">
-                    <img src="communication.png" alt="Contact Icon" class="contact-icon">
+                <!-- 1. LinkedIn Button (Contact Me ke upar/pehle) -->
+                <a href="https://www.linkedin.com/in/lakhwindersingh22" target="_blank" class="btn btn-linkedin contact-btn">
+                    <img src="linkedin.png" alt="LinkedIn" class="contact-icon" onerror="this.style.display='none'">
+                    <span>LinkedIn</span>
+                </a>
+
+                <!-- 2. Contact Me Button (Sirf Email wala Dropdown Kholega) -->
+                <a href="javascript:void(0)" onclick="toggleEmailForm()" class="btn btn-primary contact-btn">
+                    <img src="email.png" alt="Email Icon" class="contact-icon" onerror="this.src='communication.png'">
                     <span>Contact Me</span>
                 </a>
 
+                <!-- 3. Python Certificate Button -->
                 <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" 
                    target="_blank" 
                    class="btn btn-outline">
                     🏆 Python Certificate
                 </a>
 
-                <!-- Naya Dropdown Menu Yahan Hai -->
+                <!-- Sirf Email Form ka Dropdown -->
                 <div id="contact-dropdown" class="contact-dropdown-menu">
-                    
-                    <div class="contact-options" id="contact-options">
-                        <h4>How would you like to connect?</h4>
-                        <button onclick="showEmailForm()">✉️ Send an Email</button>
-                        <button onclick="showSmsForm()">📱 Send a Mobile Message</button>
-                    </div>
-
-                    <div class="contact-form" id="email-form" style="display: none;">
-                        <h4>Send Email</h4>
+                    <div class="contact-form" id="email-form">
+                        <h4>Send me an Email</h4>
                         <input type="email" id="sender-email" placeholder="Your Email Address" required>
                         <textarea id="email-msg" placeholder="Write your message here..." rows="4" required></textarea>
                         <button class="submit-btn" onclick="sendEmail()">Submit Email</button>
-                        <button class="back-btn" onclick="backToOptions()">Back</button>
+                        <button class="back-btn" onclick="closeEmailForm()">Close</button>
                     </div>
-
-                    <div class="contact-form" id="sms-form" style="display: none;">
-                        <h4>Send SMS</h4>
-                        <textarea id="sms-msg" placeholder="Write your message here..." rows="4" required></textarea>
-                        <button class="submit-btn" onclick="sendSms()">Submit Message</button>
-                        <button class="back-btn" onclick="backToOptions()">Back</button>
-                    </div>
-
                 </div>
 
             </div>
+            <!-- Button Container End -->
 
-            <style>
-            .contact-btn{
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                gap:10px;
-            }
-
-            .contact-icon{
-                width:22px;
-                height:22px;
-                object-fit:contain;
-            }
-            </style>
         </div>
 
         <div class="hero-image">
