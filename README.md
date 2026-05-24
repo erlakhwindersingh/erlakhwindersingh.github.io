@@ -4,7 +4,7 @@ Personal portfolio of Lakhwinder Singh | Senior Software Engineer | Mobile (Andr
 # 👨‍💻 Lakhwinder Singh - Portfolio Website
 
 Welcome to the repository of my personal portfolio website! 
-You can view the live site here: [Lakhwinder's Portfolio](https://erlakhwindersinghportfolio.github.io)
+You can view the live site here: [Lakhwinder's Portfolio](https://erlakhwindersingh.github.io)
 
 ## 🚀 About Me
 I am a Senior Software Engineer specializing in creating high-performance applications. I have successfully delivered **20+ diverse projects** ranging from complex mobile applications to hardware integrations. My core focus is building scalable architectures, robust state management, and seamless user experiences across various platforms.
