@@ -490,42 +490,9 @@
             });
         });
 
-        // Email Form Logic
-        function toggleEmailForm() {
-            const formContainer = document.getElementById('contact-dropdown');
-            // Close Resume dropdown if open
-            document.getElementById('resume-dropdown').style.display = 'none';
-
-            if (formContainer.style.display === 'block') {
-                formContainer.style.display = 'none';
-            } else {
-                formContainer.style.display = 'block';
-            }
-        }
-
-        function closeEmailForm() {
-            document.getElementById('contact-dropdown').style.display = 'none';
-        }
-
-        function sendEmail() {
-            const email = document.getElementById('sender-email').value;
-            const msg = document.getElementById('email-msg').value;
-            
-            const myEmail = "erlakhwindersgh@gmail.com"; 
-
-            if(email && msg) {
-                window.location.href = `mailto:${myEmail}?subject=Portfolio Contact from ${email}&body=${encodeURIComponent(msg)}`;
-                closeEmailForm(); 
-            } else {
-                alert("Please fill both Email and Message fields.");
-            }
-        }
-
         // Resume Dropdown Logic
         function toggleResumeForm() {
             const resumeForm = document.getElementById('resume-dropdown');
-            // Close Contact dropdown if open
-            document.getElementById('contact-dropdown').style.display = 'none';
             
             if (resumeForm.style.display === 'block') {
                 resumeForm.style.display = 'none';
@@ -595,27 +562,10 @@
                     <span>Download Resume</span>
                 </a>
 
-                <!-- 3. Contact Me Button -->
-                <a href="javascript:void(0)" onclick="toggleEmailForm()" class="btn btn-primary contact-btn">
-                    <img src="email.png" alt="Email Icon" class="contact-icon" onerror="this.style.display='none'">
-                    <span>Contact Me</span>
-                </a>
-
-                <!-- 4. Python Certificate Button -->
+                <!-- 3. Python Certificate Button -->
                 <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" target="_blank" class="btn btn-outline">
                     🏆 Python Certificate
                 </a>
-
-                <!-- Email Form Dropdown -->
-                <div id="contact-dropdown" class="contact-dropdown-menu">
-                    <div class="contact-form" id="email-form">
-                        <h4>Send me an Email</h4>
-                        <input type="email" id="sender-email" placeholder="Your Email Address" required>
-                        <textarea id="email-msg" placeholder="Write your message here..." rows="4" required></textarea>
-                        <button class="submit-btn" onclick="sendEmail()">Submit Email</button>
-                        <button class="back-btn" onclick="closeEmailForm()">Close</button>
-                    </div>
-                </div>
 
                 <!-- Resume Email Dropdown -->
                 <div id="resume-dropdown" class="contact-dropdown-menu">
