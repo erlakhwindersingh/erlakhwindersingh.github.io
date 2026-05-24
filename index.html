@@ -118,18 +118,33 @@
             -webkit-backdrop-filter: blur(25px) saturate(120%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            padding: 25px 10%; 
+            padding: 20px 10%; 
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; 
         }
         nav .logo { font-size: 1.8em; font-weight: 800; color: #ffffff; }
         nav .logo span { color: #00f6ff; }
         
-        nav ul { list-style: none; display: flex; gap: 30px; }
-        nav ul li a { color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1em; transition: 0.3s; }
+        nav ul { list-style: none; display: flex; gap: 15px; } /* Gap reduced slightly for pills */
         
-        /* ADDED: Active state color to match hover */
-        nav ul li a:hover, nav ul li a.active { color: #00f6ff; }
+        /* UPDATED: Nav Links - Pill shape */
+        nav ul li a { 
+            color: #e2e8f0; 
+            text-decoration: none; 
+            font-weight: 500; 
+            font-size: 1em; 
+            transition: all 0.3s ease; 
+            padding: 8px 20px; /* Padding for the round background */
+            border-radius: 30px; /* Fully rounded edges */
+        }
+        
+        /* UPDATED: Active state with background and white text */
+        nav ul li a:hover, nav ul li a.active { 
+            background: #00f6ff; 
+            color: #ffffff; 
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Shadow added so white text is readable on bright cyan */
+            box-shadow: 0 4px 15px rgba(0, 246, 255, 0.3); /* Subtle glow around the button */
+        }
 
         /* Hero Section */
         #home {
@@ -329,7 +344,7 @@
             body::before, body::after { width: 400px; height: 400px; filter: blur(90px); }
             
             nav { flex-direction: column; padding: 15px; gap: 15px; }
-            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
         }
     </style>
 </head>
@@ -360,7 +375,7 @@
             });
         });
 
-        // ADDED: Logic to highlight the active menu item based on scroll position
+        // Logic to highlight the active menu item based on scroll position
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav ul li a');
 
@@ -371,7 +386,7 @@
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
                 
-                // If scroll position is within the section area (with a 100px buffer for the navbar)
+                // Buffer of 100px so it highlights slightly before you hit the exact top
                 if (pageYOffset >= (sectionTop - 100)) {
                     current = section.getAttribute('id');
                 }
