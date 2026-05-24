@@ -493,6 +493,9 @@
         // Email Form Logic
         function toggleEmailForm() {
             const formContainer = document.getElementById('contact-dropdown');
+            // Close Resume dropdown if open
+            document.getElementById('resume-dropdown').style.display = 'none';
+
             if (formContainer.style.display === 'block') {
                 formContainer.style.display = 'none';
             } else {
@@ -515,6 +518,45 @@
                 closeEmailForm(); 
             } else {
                 alert("Please fill both Email and Message fields.");
+            }
+        }
+
+        // Resume Dropdown Logic
+        function toggleResumeForm() {
+            const resumeForm = document.getElementById('resume-dropdown');
+            // Close Contact dropdown if open
+            document.getElementById('contact-dropdown').style.display = 'none';
+            
+            if (resumeForm.style.display === 'block') {
+                resumeForm.style.display = 'none';
+            } else {
+                resumeForm.style.display = 'block';
+            }
+        }
+
+        function closeResumeForm() {
+            document.getElementById('resume-dropdown').style.display = 'none';
+        }
+
+        function sendResume() {
+            const email = document.getElementById('visitor-email').value;
+            
+            if(email) {
+                // Yahan aap apne backend ka API call laga sakte hain jo user ko email bheje.
+                // Backend API Example: fetch('/send-resume', { method: 'POST', body: { email: email } })
+                
+                // Jab tak backend nahi hai, fallback ke liye file direct download karwayein:
+                const link = document.createElement('a');
+                link.href = 'Lakhwinder_Singh_Resume.pdf'; // Yahan apne resume file ka asli path daalein
+                link.download = 'Lakhwinder_Singh_Resume.pdf'; // Jo naam download hone par dikhega
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                alert(`Thanks! Your resume process is complete for ${email}.`);
+                closeResumeForm(); 
+            } else {
+                alert("Please enter your email address first.");
             }
         }
     </script>
@@ -547,13 +589,19 @@
                     <span>LinkedIn</span>
                 </a>
 
-                <!-- 2. Contact Me Button -->
+                <!-- 2. Download Resume Button -->
+                <a href="javascript:void(0)" onclick="toggleResumeForm()" class="btn btn-outline contact-btn">
+                    <img src="resume-icon.png" alt="Resume" class="contact-icon" onerror="this.style.display='none'">
+                    <span>Download Resume</span>
+                </a>
+
+                <!-- 3. Contact Me Button -->
                 <a href="javascript:void(0)" onclick="toggleEmailForm()" class="btn btn-primary contact-btn">
                     <img src="email.png" alt="Email Icon" class="contact-icon" onerror="this.style.display='none'">
                     <span>Contact Me</span>
                 </a>
 
-                <!-- 3. Python Certificate Button -->
+                <!-- 4. Python Certificate Button -->
                 <a href="https://www.udemy.com/certificate/UC-c62352ee-cc18-403d-afee-cb284198dff4/" target="_blank" class="btn btn-outline">
                     🏆 Python Certificate
                 </a>
@@ -566,6 +614,16 @@
                         <textarea id="email-msg" placeholder="Write your message here..." rows="4" required></textarea>
                         <button class="submit-btn" onclick="sendEmail()">Submit Email</button>
                         <button class="back-btn" onclick="closeEmailForm()">Close</button>
+                    </div>
+                </div>
+
+                <!-- Resume Email Dropdown -->
+                <div id="resume-dropdown" class="contact-dropdown-menu">
+                    <div class="contact-form">
+                        <h4>Get Resume via Email</h4>
+                        <input type="email" id="visitor-email" placeholder="Enter your Email" required>
+                        <button class="submit-btn" onclick="sendResume()">Submit & Download</button>
+                        <button class="back-btn" onclick="closeResumeForm()">Close</button>
                     </div>
                 </div>
 
