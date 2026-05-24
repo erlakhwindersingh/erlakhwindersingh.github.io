@@ -25,18 +25,20 @@
         /* General Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Animated Gradient Background using SOLID dark colors to prevent white bleed */
+        /* Animated Gradient Background */
+        /* Solid colors used here so the background NEVER bleeds white */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #1a1d24; 
             
-            /* Solid dark colors blending your base #1a1d24 with deep cyan and grey */
+            /* Enhanced contrast to make the glass blur visible, without hiding text */
             background: linear-gradient(
                 -45deg, 
-                #1a1d24, 
-                #172931, /* Deep Cyan Tint */
-                #1a1d24, 
-                #22262d, /* Deep Grey Tint */
-                #1a1d24
+                #1a1d24 0%, 
+                #133842 25%, /* Distinct Cyan Tint for glass to blur */
+                #1a1d24 50%, 
+                #232833 75%, /* Subtle Grey Tint */
+                #1a1d24 100%
             );
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -46,13 +48,13 @@
             overflow-x: hidden;
         }
 
-        /* Navigation Bar - Enhanced Glass Effect */
+        /* Navigation Bar - Premium Glass */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(26, 29, 36, 0.4); /* Perfect glass base */
+            background: rgba(26, 29, 36, 0.35); 
             backdrop-filter: blur(20px); 
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
             padding: 25px 10%; 
             display: flex; justify-content: space-between; align-items: center;
@@ -96,7 +98,7 @@
         }
         .btn-primary:hover { box-shadow: 0 0 35px rgba(0, 246, 255, 0.8); transform: translateY(-3px); }
         .btn-outline { 
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(5px);
             border: 2px solid #00f6ff; 
             color: #00f6ff; 
@@ -151,15 +153,15 @@
 
         /* Experience Timeline - Deep Glass Card */
         .glass-card {
-            background: rgba(255, 255, 255, 0.015);
+            background: rgba(255, 255, 255, 0.03); /* Restored transparency */
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             /* Edge lighting for 3D glass look */
-            border-top: 1px solid rgba(255, 255, 255, 0.1); 
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.15); 
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); /* Stronger drop shadow */
             padding: 40px 30px;
         }
 
@@ -191,7 +193,7 @@
         /* Skills Grid - Glass Tags */
         .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
         .skill-tag { 
-            background: rgba(255, 255, 255, 0.02); 
+            background: rgba(255, 255, 255, 0.03); 
             backdrop-filter: blur(10px); 
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 246, 255, 0.2); 
@@ -208,21 +210,21 @@
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .project-card { 
             padding: 30px; transition: 0.4s; position: relative; overflow: hidden; 
-            background: rgba(255, 255, 255, 0.015); 
+            background: rgba(255, 255, 255, 0.03); /* Restored transparency */
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.04); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
             /* Edge lighting */
-            border-top: 1px solid rgba(255, 255, 255, 0.09);
-            border-left: 1px solid rgba(255, 255, 255, 0.09);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 12px; 
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
         .project-card:hover { 
             border-color: rgba(0, 246, 255, 0.5); 
             transform: translateY(-8px); 
             box-shadow: 0 12px 40px rgba(0, 246, 255, 0.15); 
-            background: rgba(255, 255, 255, 0.03); 
+            background: rgba(255, 255, 255, 0.05); 
         }
         .project-card h3 { font-size: 1.3em; margin: 0 0 12px; color: #fff; }
         .project-card p { font-size: 0.95em; color: #94a3b8; margin-bottom: 20px; line-height: 1.6; }
