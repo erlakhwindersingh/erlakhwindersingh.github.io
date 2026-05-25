@@ -54,6 +54,18 @@
         /* General Reset: Removing default browser margins/paddings */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        /* ==========================================
+           TEXT SELECTION COLOR: Highlight color when user selects text
+           ========================================== */
+        ::selection {
+            background-color: #00f6ff; 
+            color: #1a1d24; 
+        }
+        ::-moz-selection {
+            background-color: #00f6ff;
+            color: #1a1d24;
+        }
+
         /* Applying specific fonts to headings and logo */
         /* Headings Font Application */
         h1, h2, h3, h4, h5, h6, .logo {
