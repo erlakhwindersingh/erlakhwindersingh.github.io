@@ -546,64 +546,60 @@
         }
 
         // Triggers resume download and handles the user input email
+               // Triggers resume download and handles the user input email
         function sendResume() {
             const email = document.getElementById('visitor-email').value;
             
             if(email) {
-                // Yahan aap apne backend ka API call laga sakte hain jo user ko email bheje.
-                // Backend API Example: fetch('/send-resume', { method: 'POST', body: { email: email } })
-                
-                // Jab tak backend nahi hai, fallback ke liye file direct download karwayein:
+
+                // Resume Download
                 const link = document.createElement('a');
-                link.href = 'Lakhwinder_Singh_Resume.pdf'; // Yahan apne resume file ka asli path daalein
-                link.download = 'Lakhwinder_Singh_Resume.pdf'; // Jo naam download hone par dikhega
+                link.href = 'Lakhwinder_Singh_Resume.pdf';
+                link.download = 'Lakhwinder_Singh_Resume.pdf';
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
 
                 alert(`Thanks! Your resume process is complete for ${email}.`);
                 closeResumeForm(); 
+
             } else {
                 alert("Please enter your email address first.");
             }
         }
 
-        <script>
+        // Disable Right Click
+        document.addEventListener('contextmenu', event => event.preventDefault());
 
-    // Disable Right Click
-    document.addEventListener('contextmenu', event => event.preventDefault());
+        // Disable Inspect Shortcuts
+        document.addEventListener('keydown', function(e) {
 
-    // Disable Inspect Shortcuts
-    document.addEventListener('keydown', function(e) {
+            // Disable F12
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
 
-        // Disable F12
-        if (e.key === 'F12') {
-            e.preventDefault();
-        }
+            // Disable Ctrl+Shift+I
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+            }
 
-        // Disable Ctrl+Shift+I
-        if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-            e.preventDefault();
-        }
+            // Disable Ctrl+Shift+C
+            if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+                e.preventDefault();
+            }
 
-        // Disable Ctrl+Shift+C
-        if (e.ctrlKey && e.shiftKey && e.key === 'C') {
-            e.preventDefault();
-        }
+            // Disable Ctrl+Shift+J
+            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+                e.preventDefault();
+            }
 
-        // Disable Ctrl+Shift+J
-        if (e.ctrlKey && e.shiftKey && e.key === 'J') {
-            e.preventDefault();
-        }
+            // Disable Ctrl+U
+            if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+                e.preventDefault();
+            }
 
-        // Disable Ctrl+U
-        if (e.ctrlKey && e.key === 'u') {
-            e.preventDefault();
-        }
-
-    });
-
-</script>
+        });
     </script>
 
     <section id="home">
