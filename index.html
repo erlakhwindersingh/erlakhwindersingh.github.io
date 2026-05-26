@@ -140,8 +140,15 @@
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; 
         }
-        nav .logo { font-size: 1.8em; font-weight: 800; color: #ffffff; }
-        nav .logo span { color: #00f6ff; }
+        nav .logo {
+    font-size: 1.8em; font-weight: 800; font-family: 'Poppins-SemiBold', sans-serif;
+    color: #ffffff; cursor: pointer; user-select: none;
+    padding: 2px 12px; border: 2px solid #00f6ff; border-radius: 8px; 
+    background: rgba(0, 246, 255, 0.05); transition: all 0.3s ease; display: inline-block; letter-spacing: 1px;
+}
+nav .logo span { color: #00f6ff; transition: all 0.3s ease; }
+nav .logo:hover { background: #00f6ff; color: #080c13; box-shadow: 0 0 15px rgba(0, 246, 255, 0.5); transform: translateY(-2px); }
+nav .logo:hover span { color: #080c13; }
         
         nav ul { list-style: none; display: flex; gap: 15px; } 
         
@@ -472,7 +479,7 @@
 <body oncontextmenu="return false;">
 
     <nav>
-        <div class="logo">Lakhwinder <span>Singh</span></div>
+        <div class="logo">L<span>S</span></div>
         <ul>
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#experience">Experience</a></li>
