@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Er. Lakhwinder Singh - Portfolio</title>
     <style>
         /* ==========================================
            CUSTOM FONTS: Loading external font files
@@ -140,15 +140,16 @@
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; 
         }
+        
         nav .logo {
-    font-size: 1.8em; font-weight: 800; font-family: 'Poppins-SemiBold', sans-serif;
-    color: #ffffff; cursor: pointer; user-select: none;
-    padding: 2px 12px; border: 2px solid #00f6ff; border-radius: 8px; 
-    background: rgba(0, 246, 255, 0.05); transition: all 0.3s ease; display: inline-block; letter-spacing: 1px;
-}
-nav .logo span { color: #00f6ff; transition: all 0.3s ease; }
-nav .logo:hover { background: #00f6ff; color: #080c13; box-shadow: 0 0 15px rgba(0, 246, 255, 0.5); transform: translateY(-2px); }
-nav .logo:hover span { color: #080c13; }
+            font-size: 1.8em; font-weight: 800; font-family: 'Poppins-SemiBold', sans-serif;
+            color: #ffffff; cursor: pointer; user-select: none;
+            padding: 2px 12px; border: 2px solid #00f6ff; border-radius: 8px; 
+            background: rgba(0, 246, 255, 0.05); transition: all 0.3s ease; display: inline-block; letter-spacing: 1px;
+        }
+        nav .logo span { color: #00f6ff; transition: all 0.3s ease; }
+        nav .logo:hover { background: #00f6ff; color: #080c13; box-shadow: 0 0 15px rgba(0, 246, 255, 0.5); transform: translateY(-2px); }
+        nav .logo:hover span { color: #080c13; }
         
         nav ul { list-style: none; display: flex; gap: 15px; } 
         
@@ -292,40 +293,6 @@ nav .logo:hover span { color: #080c13; }
         .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; font-weight: 700; text-shadow: 0 4px 10px rgba(0,0,0,0.8); }
         .section-title span { color: #00f6ff; }
 
-        <section id="about">
-        <h2 class="section-title">Education & <span>Background</span></h2>
-        <div class="timeline-container glass-card">
-            
-            <div class="timeline-item">
-                <div class="company-logo" style="font-size: 1.1em;">CU</div>
-                <div class="exp-details">
-                    <h3>Chandigarh University</h3>
-                    <h4>BCA (Bachelor of Computer Applications)</h4>
-                    <p style="font-size: 0.95em; color: #cbd5e1; margin-top: 8px;">Completed higher education with a focus on computer science, programming algorithms, and advanced software development.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="company-logo" style="font-size: 1.1em;">PTU</div>
-                <div class="exp-details">
-                    <h3>Punjab Technical University</h3>
-                    <h4>Engineering in Electrical</h4>
-                    <p style="font-size: 0.95em; color: #cbd5e1; margin-top: 8px;">Built a strong foundation in core engineering principles, logical problem-solving, and analytical thinking.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="company-logo" style="font-size: 0.9em;">PSS<br>71</div>
-                <div class="exp-details">
-                    <h3>Paragon Senior Secondary School 71</h3>
-                    <h4>Schooling & Foundation</h4>
-                    <p style="font-size: 0.95em; color: #cbd5e1; margin-top: 8px;">Completed early education with a strong emphasis on academics and extracurricular activities.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
         /* Styling for the work experience timeline */
         /* Experience Timeline */
         .glass-card {
@@ -450,7 +417,7 @@ nav .logo:hover span { color: #080c13; }
         /* ==========================================
            RESPONSIVE MEDIA QUERIES
            ========================================== */
-           
+            
         /* Tablet & Small Desktops */
         @media (max-width: 900px) {
             #home { flex-direction: column-reverse; text-align: center; padding-top: 160px; justify-content: center; gap: 50px; }
@@ -516,10 +483,10 @@ nav .logo:hover span { color: #080c13; }
        <div class="logo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" title="Go to Home">L<span>S</span></div>
         <ul>
             <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#about">About</a></li>
         </ul>
     </nav>
 
@@ -657,6 +624,40 @@ nav .logo:hover span { color: #080c13; }
             </div>
         </div>
 
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Education & <span>Background</span></h2>
+        <div class="timeline-container glass-card">
+            
+            <div class="timeline-item">
+                <div class="company-logo" style="font-size: 1.1em;">CU</div>
+                <div class="exp-details">
+                    <h3>Chandigarh University</h3>
+                    <h4>BCA (Bachelor of Computer Applications)</h4>
+                    <p style="font-size: 0.95em; color: #cbd5e1; margin-top: 8px;">Completed higher education with a focus on computer science, programming algorithms, and advanced software development.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="company-logo" style="font-size: 1.1em;">PTU</div>
+                <div class="exp-details">
+                    <h3>Punjab Technical University</h3>
+                    <h4>Engineering in Electrical</h4>
+                    <p style="font-size: 0.95em; color: #cbd5e1; margin-top: 8px;">Built a strong foundation in core engineering principles, logical problem-solving, and analytical thinking.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="company-logo" style="font-size: 0.9em;">PSS<br>71</div>
+                <div class="exp-details">
+                    <h3>Paragon Senior Secondary School 71</h3>
+                    <h4>Schooling & Foundation</h4>
+                    <p style="font-size: 0.95em; color: #cbd5e1; margin-top: 8px;">Completed early education with a strong emphasis on academics and extracurricular activities.</p>
+                </div>
+            </div>
+
+        </div>
     </section>
     
     <section id="experience">
