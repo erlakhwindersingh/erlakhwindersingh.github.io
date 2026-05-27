@@ -327,29 +327,27 @@
         .skill-tag:hover { border-color: #00f6ff; background: rgba(0, 246, 255, 0.15); transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0, 246, 255, 0.3); }
 
         /* ==========================================
-           NEW: LIVE PROJECTS SECTION UI (Different & Attractive)
+           NEW: LIVE PROJECTS SECTION UI (Fixed)
            ========================================== */
         .live-section-title span { color: #00ff88; text-shadow: 0 0 15px rgba(0, 255, 136, 0.5); }
         .live-projects-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            align-items: stretch; /* Cards barabar height ke rahenge */
             gap: 40px;
             margin-top: 40px;
         }
 
         .live-card {
             position: relative;
-            width: 340px;
-            height: 380px;
+            width: 100%;
+            max-width: 400px; /* Thodi chaurayi badha di taaki text fit aaye */
             background: #111827;
             border-radius: 20px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
             z-index: 1;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
@@ -375,7 +373,7 @@
         }
 
         .live-card:hover {
-            transform: translateY(-10px) scale(1.03);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0, 255, 136, 0.25);
         }
 
@@ -400,6 +398,7 @@
             gap: 8px;
             box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
             letter-spacing: 1px;
+            z-index: 5;
         }
 
         .pulse-dot {
@@ -416,9 +415,23 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
         }
 
-        .live-content { padding: 30px; }
-        .live-content h3 { font-size: 1.8em; color: #fff; margin-bottom: 12px; }
-        .live-content p { color: #cbd5e1; font-size: 0.95em; margin-bottom: 25px; line-height: 1.6; }
+        .live-content { 
+            padding: 70px 30px 40px 30px; /* Top padding 70px di hai taaki LIVE badge clear rahe */
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Content pure card mein stretch hoga */
+            align-items: center;
+        }
+
+        .live-content h3 { font-size: 1.6em; color: #fff; margin-bottom: 12px; }
+        
+        .live-content p { 
+            color: #cbd5e1; 
+            font-size: 0.95em; 
+            margin-bottom: 25px; 
+            line-height: 1.7; 
+            flex-grow: 1; /* Text expand hoke button ko bottom mein push karega */
+        }
         
         .live-btn {
             background: linear-gradient(90deg, #00f6ff, #00ff88);
@@ -430,6 +443,7 @@
             transition: 0.3s;
             display: inline-block;
             box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+            margin-top: auto; /* Button humesha card ke ekdum niche rahega */
         }
         .live-btn:hover {
             box-shadow: 0 8px 25px rgba(0, 255, 136, 0.6);
