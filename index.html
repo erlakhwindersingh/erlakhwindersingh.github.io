@@ -493,14 +493,6 @@
     <script>
         // Smooth scrolling for navigation links: Makes page glide to section instead of jumping
         // Anti-DevTools Trick: Freezes the page if Developer Tools (Inspect) is opened
-   // Anti-DevTools Trick: Freezes the page if Developer Tools (Inspect) is opened
-        setInterval(function() {
-            (function (a) {
-                return (function (a) {
-                    return (Function('Function(arguments[0]+"' + a + '")()'))
-                })(a)
-            })('bugger')('de');
-        }, 1000);
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
